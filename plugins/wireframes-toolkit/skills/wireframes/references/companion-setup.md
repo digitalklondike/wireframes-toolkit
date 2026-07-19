@@ -16,6 +16,15 @@ On Windows PowerShell, use `npx.cmd` instead of `npx` when the local execution p
 
 The Figma MCP connection is declared separately in `agents/openai.yaml`. Installing `figma-use` does not authenticate Figma; the user may still need to enable or reconnect Figma.
 
+## Optional Mobbin research app
+
+Mobbin supplies real-product screen and flow references. It is optional and is managed separately through Codex Plugins.
+
+- If Mobbin search tools are registered, report `Available`.
+- If they are missing, continue with `ui-ux-pro-max` and the built-in quality standard.
+- Do not invent a CLI package name or install Mobbin silently.
+- When the user explicitly requires Mobbin, explain that they must enable or authenticate the Mobbin plugin, then continue only if the task can still be useful without it.
+
 ## Recommended quality companions
 
 Install `impeccable`:
@@ -35,6 +44,6 @@ After installing skills, start a new Codex task if the current task does not dis
 ## Runtime recommendation behavior
 
 - Name only the missing companions.
-- Explain the impact in one sentence: Figma execution is blocked without `figma-use`; the other companions improve research, system consistency, and critique but are optional.
+- Explain the impact in one sentence: Figma execution is blocked without `figma-use`; the other skills and Mobbin improve research, system consistency, and critique but are optional.
 - Offer the exact relevant command, but do not run it without explicit consent.
 - If the user continues without optional companions, use `references/universal-quality.md` as the fallback and proceed.

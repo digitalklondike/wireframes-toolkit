@@ -1,0 +1,44 @@
+# Mobbin Research
+
+Use Mobbin to observe real product conventions before committing to a substantial UX flow. Do not treat prevalence as proof of quality; synthesize evidence against the current brief, constraints, accessibility needs, and product risks.
+
+## When to research
+
+Use Mobbin when at least one condition applies:
+
+- the user explicitly asks for Mobbin references or best practices;
+- the flow is new, unfamiliar, or spans three or more screens;
+- the interaction has meaningful sequencing, permissions, recovery, or edge states;
+- choosing the wrong pattern would create costly rework.
+
+Skip it for small alignment repairs, obvious component cleanup, or audits that do not require a new interaction model.
+
+## Search method
+
+1. Choose the real target platform: `web` or `ios`.
+2. Split the product problem into one-intent queries. Search upload, filtering, bulk actions, permissions, recovery, or another journey separately instead of combining unrelated needs.
+3. Use flow search for sequencing, screen search for a specific view, and section search only for marketing or website sections.
+4. Keep result limits small enough to inspect every returned image. Compare at least two relevant products when results allow it.
+5. Examine the images and screen order. Never describe or adopt a pattern from names, action labels, or metadata alone.
+6. Run a second focused query only when the first result set leaves an important state or decision unresolved.
+
+## Synthesize instead of copying
+
+For each useful pattern, capture:
+
+- the user problem it solves;
+- the recurring structure across products;
+- the entry point and dominant next action;
+- information order and progressive disclosure;
+- loading, empty, error, permission, destructive, and recovery behavior;
+- what to adopt structurally;
+- what to reject because it is branded, app-specific, inaccessible, outdated, or inconsistent with the brief.
+
+Use the synthesis to shape the screen inventory and state matrix. Do not copy product names, interface copy, data, visual styling, or a complete competitor layout.
+
+## Reporting and fallback
+
+- When mentioning a Mobbin screen or flow to the user, provide its canonical `mobbin_url` as a Markdown link.
+- State clearly when a conclusion is an inference from several references rather than a rule.
+- If Mobbin tools are missing or unauthenticated, continue with `ui-ux-pro-max`, the current brief, and the built-in quality standard. Do not block Figma work unless the user explicitly requires Mobbin evidence.
+- Do not install or authenticate the Mobbin plugin silently. Explain the missing capability and let the user enable it through Codex Plugins.
