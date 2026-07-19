@@ -6,6 +6,7 @@
 - Require focused one-intent searches, visual inspection, multi-product comparison, synthesis instead of copying, and canonical Mobbin links.
 - Extend setup diagnostics with separate Mobbin availability while keeping it non-blocking and never silently installed.
 - Expand the public README with plugin capabilities, workflow, usage examples, installation, dependencies, and update instructions.
+- Rewrite installation as exact, separate Windows and macOS steps, including where terminal commands and in-app skill commands must be entered.
 
 ## 0.1.3
 

@@ -4,6 +4,97 @@ Wireframes Toolkit is a public Codex plugin for researching, creating, extending
 
 It turns product briefs, requirements, journeys, and rough ideas into complete low- or mid-fidelity flows with intentional Auto Layout, reusable components, realistic states, responsive behavior, and screenshot-verified structural QA. The workflow is universal: supplied examples inform quality and construction, never the product domain or interface copy.
 
+## Install — follow these steps
+
+There are two places where you will type things:
+
+- **Windows PowerShell or macOS Terminal:** use it for commands beginning with `codex` or `codex.cmd`.
+- **A new Codex task in the ChatGPT desktop app:** use its message box for commands beginning with `$wireframes-toolkit:`.
+
+Copy one command at a time and press Enter after each command.
+
+### Windows
+
+1. Open the **Start** menu, search for **PowerShell**, and open it.
+2. Check that the Codex CLI is installed:
+
+   ```powershell
+   codex.cmd --version
+   ```
+
+   If a version number appears, continue. If PowerShell says the command does not exist, install Codex CLI, close PowerShell, reopen it, and run the version check again:
+
+   ```powershell
+   npm.cmd install --global @openai/codex
+   ```
+
+3. Add the public Wireframes marketplace:
+
+   ```powershell
+   codex.cmd plugin marketplace add digitalklondike/wireframes-toolkit
+   ```
+
+4. Install Wireframes Toolkit:
+
+   ```powershell
+   codex.cmd plugin add wireframes-toolkit@wireframes-toolkit
+   ```
+
+5. Continue with [Finish setup in Codex](#finish-setup-in-codex).
+
+### macOS
+
+1. Press **Command + Space**, type **Terminal**, and open it.
+2. Check that the Codex CLI is installed:
+
+   ```bash
+   codex --version
+   ```
+
+   If a version number appears, continue. If Terminal says the command does not exist, install Codex CLI, close Terminal, reopen it, and run the version check again:
+
+   ```bash
+   npm install --global @openai/codex
+   ```
+
+3. Add the public Wireframes marketplace:
+
+   ```bash
+   codex plugin marketplace add digitalklondike/wireframes-toolkit
+   ```
+
+4. Install Wireframes Toolkit:
+
+   ```bash
+   codex plugin add wireframes-toolkit@wireframes-toolkit
+   ```
+
+5. Continue with [Finish setup in Codex](#finish-setup-in-codex).
+
+### Finish setup in Codex
+
+These steps are the same on Windows and macOS:
+
+1. Fully close and reopen the ChatGPT desktop app.
+2. Start a **new Codex task**.
+3. Paste the following into the **Codex message box**, not PowerShell or Terminal, and send it:
+
+   ```text
+   $wireframes-toolkit:setup
+   ```
+
+4. Setup reports what is already available and what is missing. If it proposes installing companion skills, review the listed sources and approve only if you agree.
+5. If setup installs anything, fully restart the app and start another new Codex task.
+6. To use the plugin, paste this into the Codex message box and add your request after it:
+
+   ```text
+   $wireframes-toolkit:wireframes
+
+   Turn the attached product requirements into a complete desktop Figma wireframe flow.
+   ```
+
+7. For editable Figma work, complete the Figma connect or reconnect prompt if Codex shows one. Mobbin is optional and can be enabled separately when reference research is needed.
+
 ## What the plugin does
 
 - Frames the actor, job to be done, entry point, success outcome, constraints, and business rules.
@@ -30,41 +121,7 @@ If Mobbin is unavailable, the workflow continues with `ui-ux-pro-max` and the bu
 
 The substantial-flow sequence is: Mobbin evidence → `ui-ux-pro-max` guidance → `design-system` structure → `impeccable` critique → editable Figma execution and QA.
 
-## Install from GitHub
-
-Requirements:
-
-- Codex or the ChatGPT desktop app with plugin support;
-- GitHub access to this public repository;
-- a Figma connection for editable Figma work.
-
-Add the public marketplace:
-
-```powershell
-codex plugin marketplace add digitalklondike/wireframes-toolkit
-```
-
-Install the plugin:
-
-```powershell
-codex plugin add wireframes-toolkit@wireframes-toolkit
-```
-
-On Windows PowerShell, use `codex.cmd` when the execution policy blocks `codex.ps1`.
-
-Restart the ChatGPT desktop app and start a new Codex task after the first installation so skill discovery and Figma wiring refresh correctly.
-
-## Prepare dependencies
-
-Run the bundled setup skill once:
-
-```text
-$wireframes-toolkit:setup
-```
-
-Setup audits the current installation, reports Figma and optional Mobbin availability, shows the exact missing skill packages and sources, requests one explicit confirmation, and installs only approved missing skills.
-
-Dependency behavior:
+## What setup checks
 
 - `figma-use` is required before editable `use_figma` operations.
 - `ui-ux-pro-max` is recommended for UX pattern and anti-pattern evidence.
@@ -73,16 +130,6 @@ Dependency behavior:
 - Mobbin is an optional Codex app for real-product reference research.
 - Figma and Mobbin authentication are separate from skill installation.
 - No third-party skill or app is installed without explicit user consent.
-
-Manual skill installation is available when needed:
-
-```powershell
-npx skills add openai/skills --skill figma-use -g -a codex -y
-npx skills add pbakaus/impeccable --skill impeccable -g -a codex -y
-npx skills add nextlevelbuilder/ui-ux-pro-max-skill --skill ui-ux-pro-max --skill design-system -g -a codex -y
-```
-
-On Windows PowerShell, use `npx.cmd` when `npx.ps1` is blocked. External skill repositories are mutable upstream sources and skills execute with agent permissions, so review them before installation.
 
 ## Use the plugin
 
@@ -110,14 +157,29 @@ For an audit-only request, the skill reports findings without modifying Figma. A
 
 ## Update
 
-Refresh the public marketplace and reinstall the current version:
+### Windows
 
 ```powershell
+codex.cmd plugin marketplace upgrade wireframes-toolkit
+codex.cmd plugin add wireframes-toolkit@wireframes-toolkit
+```
+
+### macOS
+
+```bash
 codex plugin marketplace upgrade wireframes-toolkit
 codex plugin add wireframes-toolkit@wireframes-toolkit
 ```
 
-Restart the ChatGPT desktop app and begin a new Codex task after updating.
+After updating, fully restart the ChatGPT desktop app and begin a new Codex task.
+
+## Troubleshooting
+
+- **`codex` or `codex.cmd` is not recognized:** install the Codex CLI with the npm command shown in the operating-system instructions, then reopen the terminal.
+- **`npm` or `npm.cmd` is not recognized:** install Node.js with npm, reopen the terminal, and repeat the Codex CLI installation step.
+- **The plugin installed but the skill is not visible:** fully restart the ChatGPT desktop app and start a new Codex task.
+- **Figma tools are unavailable:** enable or reconnect Figma, then start a new task.
+- **Mobbin is unavailable:** continue without it or enable the optional Mobbin plugin for real-product reference research.
 
 ## Repository layout
 
