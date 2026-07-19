@@ -2,6 +2,8 @@
 
 Use this reference only when a companion skill is missing. Compare names against the current available-skills catalog; do not infer availability from filesystem paths alone.
 
+When `$wireframes-toolkit:setup` is available, offer it as the preferred guided path. It audits all companions, requests one explicit confirmation, and installs only missing skills. Keep the individual commands below as a transparent manual fallback.
+
 ## Required for editable Figma execution
 
 `figma-use` is the mandatory prerequisite for every `use_figma` call. It is maintained in OpenAI's public skills repository.

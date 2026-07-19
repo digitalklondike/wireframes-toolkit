@@ -20,9 +20,17 @@ On Windows PowerShell, use `codex.cmd` when the local execution policy blocks `c
 
 The repository is public, so recipients can install and update the marketplace without being added as GitHub collaborators.
 
+Run the bundled dependency setup once:
+
+```text
+$wireframes-toolkit:setup
+```
+
+Setup checks what is already installed, shows the exact missing packages and sources, requests one confirmation, then installs only the approved missing companions. Start a new Codex task after setup and invoke `$wireframes-toolkit:wireframes`.
+
 ## Companion behavior
 
-The plugin does not silently install third-party skills.
+The plugin does not silently install third-party skills. Use `$wireframes-toolkit:setup` for the guided installation flow.
 
 At the beginning of a substantial wireframing task, `wireframes` compares the available-skills catalog with its companion list:
 

@@ -1,6 +1,6 @@
 {
   "name": "wireframes-toolkit",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Create and audit universal black-and-white Figma wireframes with Auto Layout and structured UX flows.",
   "author": {
     "name": "digitalklondike",
@@ -13,7 +13,7 @@
   "interface": {
     "displayName": "Wireframes Toolkit",
     "shortDescription": "Create structured low-fi Figma wireframes",
-    "longDescription": "Build and audit editable monochrome product wireframes with Auto Layout, reusable components, realistic states, responsive behavior, and visual QA. Optional companion skills add UX research, design-system structure, and critique.",
+    "longDescription": "Build and audit editable monochrome product wireframes with Auto Layout, reusable components, realistic states, responsive behavior, and visual QA. A bundled setup skill safely installs optional UX research, design-system, and critique companions.",
     "developerName": "digitalklondike",
     "category": "Productivity",
     "capabilities": ["Interactive", "Write"],

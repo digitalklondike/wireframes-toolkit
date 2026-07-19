@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.2
+
+- Add the explicit `$wireframes-toolkit:setup` dependency audit and installer workflow.
+- Install only missing companion skills after one clear confirmation.
+- Keep Figma MCP connection status separate from the `figma-use` skill.
+
 ## 0.1.1
 
 - Move repository ownership and plugin metadata to `digitalklondike`.

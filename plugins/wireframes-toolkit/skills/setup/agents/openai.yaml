@@ -1,0 +1,6 @@
+interface:
+  display_name: "Wireframes Setup"
+  short_description: "Install Wireframes companion skills safely"
+  default_prompt: "Use $setup to check and install the Wireframes companion skills."
+policy:
+  allow_implicit_invocation: false
