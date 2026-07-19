@@ -1,10 +1,10 @@
 # Wireframes Toolkit
 
-A private Codex marketplace that distributes the `wireframes` skill for creating and auditing editable black-and-white Figma wireframes.
+A public Codex marketplace that distributes the `wireframes` skill for creating and auditing editable black-and-white Figma wireframes.
 
 ## Install from GitHub
 
-Add the private marketplace:
+Add the public marketplace:
 
 ```powershell
 codex plugin marketplace add digitalklondike/wireframes-toolkit
@@ -18,7 +18,7 @@ codex plugin add wireframes-toolkit@wireframes-toolkit
 
 On Windows PowerShell, use `codex.cmd` when the local execution policy blocks `codex.ps1`. Restart the ChatGPT desktop app and begin a new Codex task after the first installation.
 
-Private-repository access uses the recipient's GitHub credentials. Only collaborators who can read this repository can install or update the marketplace.
+The repository is public, so recipients can install and update the marketplace without being added as GitHub collaborators.
 
 ## Companion behavior
 
