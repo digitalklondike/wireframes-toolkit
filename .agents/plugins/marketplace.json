@@ -1,0 +1,20 @@
+{
+  "name": "wireframes-toolkit",
+  "interface": {
+    "displayName": "Wireframes Toolkit"
+  },
+  "plugins": [
+    {
+      "name": "wireframes-toolkit",
+      "source": {
+        "source": "local",
+        "path": "./plugins/wireframes-toolkit"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

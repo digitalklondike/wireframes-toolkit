@@ -1,0 +1,13 @@
+interface:
+  display_name: "Wireframes"
+  short_description: "Create clear, universal Figma wireframes"
+  default_prompt: "Use $wireframes to turn this product brief into clear black-and-white Figma wireframes built with Auto Layout."
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "figma"
+      description: "Figma MCP server for editable wireframes"
+      transport: "streamable_http"
+      url: "https://mcp.figma.com/mcp"
+policy:
+  allow_implicit_invocation: true
