@@ -73,6 +73,9 @@ Auto Layout is the default construction method, not an optional cleanup step.
 - Use wrapping rows only when reading order remains clear.
 - Keep minimum usable widths in mind before allowing siblings to fill equally.
 - Make repeated patterns components when consistency or future editing benefits from reuse.
+- Promote coherent macro-patterns used on three or more screens to components or instances. Shared shells, toolbars, tables, rows, cards, dialog shells, and state panels should not remain copied frames across a flow.
+- Combine systematic component states and styles into variants instead of maintaining unrelated standalone siblings.
+- Keep icon identity separate from icon presentation. Reuse one glyph component and override its neutral fill rather than duplicating light and dark icon libraries.
 - Keep icons, badges, and labels inside their control's Auto Layout.
 - Keep overlays absolute only relative to a stable Auto Layout container.
 
@@ -119,6 +122,8 @@ Consider:
 - long text, localization, and accessibility scaling.
 
 Show overlays over a dimmed or otherwise contextualized origin screen. Make close, cancel, back, and escape paths clear.
+
+Place standalone empty, no-results, blocked, error, and recovery panels inside a `State region` that fills the remaining content area. Center against that actual region, not an arbitrary fixed-height box. Avoid repeating the same breadcrumb path or dominant action elsewhere in the same viewport unless the duplicate has a distinct contextual purpose.
 
 ## Monochrome visual language
 
@@ -171,6 +176,9 @@ Reject or correct wireframes that:
 - use lorem ipsum where real content shape is knowable;
 - show isolated modals or drawers without originating context;
 - contain clipped text, ambiguous action priority, duplicate components, or generic layer names;
+- copy the same app shell, table, toolbar, row, or state structure across three or more screens instead of using instances;
+- split one control family into unrelated components or duplicate icon glyphs only to change their monochrome fill;
+- claim a state is centered when its parent does not fill the remaining content area;
 - add polish that makes stakeholders debate branding instead of product structure.
 
 ## Quality rubric

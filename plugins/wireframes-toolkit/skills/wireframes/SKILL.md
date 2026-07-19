@@ -112,6 +112,9 @@ Apply these rules:
 - Give wrapping text a real width and height-auto behavior. Test long labels and realistic content.
 - Size every container to its tallest child. Use a consistent control height appropriate to the platform, commonly 44 px on desktop wireframes, and never hide a sizing defect with clipping.
 - Turn repeated or stateful structures into components and instances. Create variants when differences are systematic.
+- Treat reuse as a construction requirement, not optional cleanup. Any coherent macro-pattern used on three or more screens—such as an app shell, navigation, toolbar, table header or row, card, dialog shell, upload manager, or state panel—should normally be a component or instance with explicit override points.
+- Model one semantic component family as a component set with variant properties such as `state`, `style`, `size`, or `selection`. Do not leave `Button/Primary`, `Button/Secondary`, and similar siblings as unrelated standalone components when they are variants of the same control.
+- Keep one component per icon glyph and change presentation through supported instance overrides, variables, or component properties. Do not duplicate an icon library merely to create light and dark versions.
 - Name layers by role: `Page shell`, `Primary navigation`, `Content`, `Section`, `Field`, `Actions`, `Modal`, and similar semantic names.
 - Avoid generic names such as `Frame 123`, `Group`, or `Rectangle` in finished work.
 - Use absolute positioning only for overlays, floating controls, chart marks, freeform canvases, or intentionally layered elements. Keep their containing structure in Auto Layout.
@@ -127,9 +130,10 @@ Apply these rules:
 - Treat filters and selects as stateful controls, not decorative chips. Give the trigger a real caret icon, show an anchored open state with a visible current selection, and add an applied state whose label, count, and resulting content agree with the chosen value.
 - Put the clear affordance for a populated search field inside the field at the trailing edge. Do not add a separate `Clear search` button unless clearing is a destructive or unusually consequential operation.
 - Use one orientation path per view. When a breadcrumb is present, do not repeat the same path as subtitle copy above it.
+- Avoid duplicate primary actions within one viewport. If a title row or persistent toolbar already exposes the empty-state action, either remove it from the state panel, demote one occurrence, or make the contextual difference explicit.
 - Use one coherent icon library and real vector icons instead of text glyphs. If the brief does not specify a library, prefer Phosphor icons for neutral product wireframes. Give every icon-only action an unambiguous accessible name or tooltip.
 - When space is constrained, preserve the recognizable icon and convert a secondary action to icon-only before allowing its label or control to clip. Keep primary or ambiguous actions labeled.
-- Center dialogs within the active content viewport, excluding persistent navigation and headers. Put standalone empty, error, blocked, and recovery panels inside a named `State region` that fills the allocated area, then center the panel within that region on both axes unless the surrounding information architecture requires another alignment.
+- Center dialogs within the active content viewport, excluding persistent navigation and headers. Put every standalone empty, no-results, error, blocked, and recovery panel inside a named `State region` that fills the remaining content area on both axes, then center the panel within that region unless the surrounding information architecture requires another alignment. Do not simulate centering with a fixed-height region that leaves unused space below it, and do not place a standalone state panel directly in a left-aligned content stack.
 - Give dialogs a scrim that covers the entire active screen state and place the centered dialog above it. Contextual menus, dropdowns, and popovers should not dim the screen; their trigger, edge alignment, and small gap must communicate origin.
 - Keep adjacent actions visually distinct. Use an explicit Auto Layout gap, normally 8–12 px on desktop, and audit nested trailing-action groups as well as the outer action row so button strokes never visually merge.
 - Annotate assumptions or non-obvious behavior outside the product UI, not as fake interface copy.
@@ -166,14 +170,17 @@ Check all of the following:
 - no empty `Spacer` layer exists; all separation comes from Auto Layout alignment, distribution, gaps, or padding;
 - every interactive control that relies on an icon contains a visible icon, and constrained icon-only controls remain understandable;
 - repeated structures are instances where reuse is valuable;
+- macro-patterns repeated across three or more screens are instances rather than copied frames;
+- systematic control families use variants, and icon glyphs are not duplicated by presentation color;
 - hierarchy and primary actions remain obvious in grayscale;
+- each view has one canonical orientation path and no unexplained duplicate primary CTA;
 - content is realistic and belongs to the current brief;
 - relevant edge states and responsive transformations are present;
 - overlays retain context and clear dismissal paths;
 - layers and frames are semantically named;
 - screenshots match metadata and intended structure.
 
-For Figma flows, finish with a programmatic audit where practical: count screen roots; assert zero `Spacer` layers; detect descendants outside screen bounds and children larger than clipping parents; flag full-width structural children that remain `FIXED`; verify flexible card/content columns use `FILL`; verify dialogs and state panels are centered against their active region; and verify open menus have a small positive gap and aligned edge relative to their triggers. Then visually inspect representative dense, modal, error, menu, and long-content states.
+For Figma flows, read [Figma Structural QA](references/figma-structural-qa.md) before the final audit. Count screen roots; assert zero `Spacer` layers; detect descendants outside screen bounds and children larger than clipping parents; verify flexible structural regions use `FILL`; verify standalone states have a fill-remaining `State region`; detect copied macro-patterns and split component families; compare repeated orientation paths and primary actions; and verify open menus have a small positive gap and aligned edge relative to their triggers. Apply the reference's false-positive rules before reporting defects. Then visually inspect representative dense, modal, state, menu, long-content, and whole-section screenshots.
 
 When a section or canvas group grows, recompute the positions of every downstream section row. Preserve the established horizontal and vertical gutters, move paired columns together, and assert zero pairwise intersections between top-level sections before handoff.
 

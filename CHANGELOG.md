@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.3
+
+- Require fill-remaining state regions so empty, no-results, blocked, and recovery panels center against the real content area.
+- Promote repeated app shells, toolbars, tables, rows, dialogs, and state structures to reusable macro-components after three screens.
+- Require variants for systematic component families and prevent icon-library duplication by monochrome fill.
+- Add false-positive-aware Figma QA for fixed widths, compact text, action gaps, duplicated paths, and repeated primary actions.
+
 ## 0.1.2
 
 - Add the explicit `$wireframes-toolkit:setup` dependency audit and installer workflow.
