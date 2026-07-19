@@ -7,7 +7,7 @@ A private Codex marketplace that distributes the `wireframes` skill for creating
 Add the private marketplace:
 
 ```powershell
-codex plugin marketplace add NikitaHoriachko/wireframes-toolkit
+codex plugin marketplace add digitalklondike/wireframes-toolkit
 ```
 
 Install the plugin:

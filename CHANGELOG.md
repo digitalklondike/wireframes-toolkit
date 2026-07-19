@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.1
+
+- Move repository ownership and plugin metadata to `digitalklondike`.
+- Update the private marketplace installation URL.
+
 ## 0.1.0
 
 - Package the universal `wireframes` skill as a private Codex plugin.
