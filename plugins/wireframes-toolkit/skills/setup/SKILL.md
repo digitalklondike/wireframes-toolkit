@@ -1,6 +1,6 @@
 ---
 name: setup
-description: Audit and install the companion skills used by Wireframes Toolkit. Use when the user explicitly invokes setup, asks to prepare Wireframes dependencies, or wants to diagnose missing figma-use, impeccable, ui-ux-pro-max, or design-system skills. Check what is already available, request consent before installation, install only missing skills from approved public source locations, validate the result, and explain Figma connection or restart requirements.
+description: Audit and install the companion skills used by Wireframes Toolkit. Use when the user explicitly invokes setup, asks to prepare Wireframes dependencies, or wants to diagnose missing figma-use, impeccable, ui-ux-pro-max, design-system, Figma, or optional Mobbin capabilities. Check what is already available, request consent before installation, install only missing skills from approved public source locations, validate the result, and explain Figma, Mobbin, or restart requirements.
 ---
 
 # Wireframes Setup
@@ -26,10 +26,11 @@ Prepare the current Codex installation for the complete Wireframes workflow. Kee
 | `ui-ux-pro-max` | UX research and pattern evidence | Recommended | `nextlevelbuilder/ui-ux-pro-max-skill` |
 | `design-system` | Components, states, spacing, and type structure | Recommended | `nextlevelbuilder/ui-ux-pro-max-skill` |
 | `impeccable` | Product UX critique and hardening | Recommended | `pbakaus/impeccable` |
+| Mobbin app tools | Real-product screen and flow references | Optional | Manage through Codex Plugins; never auto-install |
 
 The source locations above identify the intended public repositories; they are mutable upstream sources, not cryptographic pins. Disclose this before installation and never substitute a similarly named repository.
 
-The Figma MCP connection is separate from `figma-use`. The Wireframes skill declares the Figma MCP dependency, but the user may still need to install, enable, authenticate, or reconnect the Figma plugin.
+The Figma MCP connection is separate from `figma-use`. The Wireframes skill declares the Figma MCP dependency, but the user may still need to install, enable, authenticate, or reconnect Figma. Mobbin is also separate from the skill packages and remains optional; do not invent a CLI source or install it automatically.
 
 ## Workflow
 
@@ -39,9 +40,10 @@ The Figma MCP connection is separate from `figma-use`. The Wireframes skill decl
 2. Use filesystem checks only as secondary evidence when the catalog is ambiguous. Common user-level roots are `~/.agents/skills` and `~/.codex/skills`.
 3. Resolve the installer executable before requesting consent. On Windows, prefer `npx.cmd` directly; on other platforms use `npx`. If it is unavailable, report the blocker and do not propose an installation command that cannot run.
 4. Separately check Figma. Report `MCP unavailable` when no Figma tools are registered. When a read-only `whoami` tool is available, call it once: report `Connected` on success and `Needs reconnect` on an authentication or authorization failure. Use `Not tested` only when connectivity cannot be checked without expanding the requested scope.
-5. Report the catalog match and its limitation: availability by name does not verify the installed skill's version or origin.
+5. Check whether Mobbin screen or flow search tools are registered. Report `Available`, `Missing`, or `Not tested`. Do not treat `Missing` as a blocker and do not install Mobbin automatically.
+6. Report the catalog match and its limitation: availability by name does not verify the installed skill's version or origin.
 
-If all four skills are available, do not run an installer. Report that Wireframes is ready and mention only unresolved Figma authentication, if any.
+If all four skills are available, do not run an installer. Report that Wireframes is ready and mention unresolved Figma authentication plus the optional Mobbin status.
 
 ### 2. Confirm
 
@@ -77,6 +79,6 @@ Run commands sequentially and preserve their real output. Do not suppress securi
 2. Check for each installed skill's `SKILL.md` under the user-level Codex skill locations or installer-reported destination.
 3. Do not claim the current task has dynamically loaded a newly installed skill unless it appears in the available-skills catalog.
 4. Tell the user to start a new Codex task after installation so skill discovery and MCP wiring refresh safely.
-5. In the final report, list each skill as `Already available`, `Missing`, `Installed`, `Failed`, or `Not requested`. Report Figma separately as `Connected`, `Needs reconnect`, `MCP unavailable`, or `Not tested`.
+5. In the final report, list each skill as `Already available`, `Missing`, `Installed`, `Failed`, or `Not requested`. Report Figma separately as `Connected`, `Needs reconnect`, `MCP unavailable`, or `Not tested`. Report Mobbin separately as `Available`, `Missing`, or `Not tested`.
 
 Do not start a wireframing task from this setup skill. Finish setup and direct the user to invoke `$wireframes-toolkit:wireframes` in a new task.

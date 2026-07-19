@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.4
+
+- Add optional Mobbin research routing for substantial flows, unfamiliar product models, and explicit best-practice requests.
+- Require focused one-intent searches, visual inspection, multi-product comparison, synthesis instead of copying, and canonical Mobbin links.
+- Extend setup diagnostics with separate Mobbin availability while keeping it non-blocking and never silently installed.
+- Expand the public README with plugin capabilities, workflow, usage examples, installation, dependencies, and update instructions.
+
 ## 0.1.3
 
 - Require fill-remaining state regions so empty, no-results, blocked, and recovery panels center against the real content area.

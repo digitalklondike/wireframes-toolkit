@@ -1,6 +1,6 @@
 ---
 name: wireframes
-description: Create, extend, revise, or audit universal black-and-white product wireframes and UX flows, especially in Figma. Use when Codex must turn briefs, requirements, journeys, or rough ideas into structurally sound low- or mid-fidelity screens; plan screen inventories and states; create desktop, mobile, or responsive variants; or improve existing wireframes. Prioritize Auto Layout, reusable components, realistic content, clear hierarchy, responsive reflow, and visual validation. Apply to any product domain or screen type. Do not use for branded high-fidelity visual design, illustration, or marketing artwork.
+description: Research, create, extend, revise, or audit universal black-and-white product wireframes and UX flows, especially in Figma. Use when Codex must turn briefs, requirements, journeys, rough ideas, or comparable-product evidence into structurally sound low- or mid-fidelity screens; plan screen inventories and states; create desktop, mobile, or responsive variants; or improve existing wireframes. Prioritize focused UX research, Auto Layout, reusable components, realistic content, clear hierarchy, responsive reflow, and visual validation. Apply to any product domain or screen type. Do not use for branded high-fidelity visual design, illustration, or marketing artwork.
 ---
 
 # Wireframes
@@ -54,6 +54,20 @@ For substantial creation or revision, load and apply the following installed com
 For a small scoped repair, skip the full companion sequence and load only the companion whose lens directly helps. If a companion skill is unavailable, continue with `wireframes`, state the fallback briefly, and do not block the task.
 
 Resolve conflicts in this order: the current user brief, this skill's low-fidelity and monochrome constraints, the existing file's coherent conventions, then companion recommendations. Translate companion output into native editable Figma structure rather than code-only deliverables.
+
+## UX reference research
+
+For a substantial new flow, an unfamiliar product model, a complex interaction, or an explicit request for references or best practices, use Mobbin when its app tools are available. Read [Mobbin Research](references/mobbin-research.md) before searching, and complete the focused research before finalizing the screen inventory.
+
+For substantial creation, use this order: Mobbin for real-product evidence, `ui-ux-pro-max` for guidance and anti-patterns, `design-system` for reusable structure, then `impeccable` for critique after the first complete draft.
+
+- Treat Mobbin as evidence of real product conventions, not as an authority or a source to copy.
+- Compare multiple relevant products and extract flow structure, information order, state coverage, action placement, recovery paths, and progressive disclosure.
+- Keep each search focused on one journey, screen, or section and use the requested platform.
+- Inspect returned images; never infer a pattern from metadata alone.
+- Cite the Mobbin links for references mentioned to the user.
+- Skip Mobbin for small layout repairs, component-only cleanup, or a structural audit whose scope will not change.
+- Keep Mobbin optional. If its tools are unavailable, continue with `ui-ux-pro-max` and the built-in quality standard. Mention the fallback only when the user explicitly requested Mobbin or when missing evidence materially limits the result.
 
 ## Workflow
 
