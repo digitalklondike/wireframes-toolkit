@@ -120,9 +120,12 @@ Test reusable controls and content components at minimum, nominal, and expanded 
 ### Containers
 
 - Give flexible siblings real minimum widths or explicit reflow rules.
-- Use FILL for widths derived from the parent and HUG for intrinsic content.
+- Use layout FILL for widths derived from the parent and HUG for intrinsic content. Do not confuse layout FILL with the `fills` paint property.
+- Assign a visual role to every container. Keep semantic wrappers transparent and let one card, panel, field, menu, dialog, or media surface own the background and border.
+- Reset default fills, strokes, and effects on new structural Auto Layout frames instead of inheriting Figma's white frame paint.
+- Keep ordinary containers unclipped; enable clipping only for an explicit viewport, scroll region, media mask, or bounded preview.
 - Detect visible descendants outside the component and children larger than clipping parents.
-- Screenshot both the component source and representative instances after a source edit.
+- Inspect every component variant, including unused states, and screenshot both the source and representative instances after a source edit.
 
 ## Completion gates
 
@@ -134,4 +137,5 @@ Do not accept the first draft until:
 - repeated system regions are components or instances;
 - a change-impact map exists for any revision touching shared UI;
 - buttons and cards pass minimum, nominal, expanded, and long-content tests;
+- structural wrappers remain transparent, each surface has one paint owner, and every component variant passes the paint audit;
 - zero visible content is clipped or hidden by a fixed-width control.

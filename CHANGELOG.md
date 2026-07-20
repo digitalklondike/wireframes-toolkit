@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.6
+
+- Distinguish layout `FILL` sizing from Figma's `fills` paint property.
+- Require explicit visual roles for containers and transparent fills, strokes, and effects on structural Auto Layout wrappers.
+- Add one-owner surface rules to prevent nested white rectangles and doubled borders inside cards, panels, controls, and alternate backgrounds.
+- Audit component sources and every variant, including unused installed, disabled, loading, error, selected, and compact states.
+- Reserve `clipsContent` for deliberate viewports, scroll regions, masks, and previews instead of hiding construction defects.
+- Add false-positive-aware paint inspection and contrasting-surface screenshot checks to final Figma QA.
+
 ## 0.1.5
 
 - Require composition-level Mobbin synthesis instead of reducing research to generic tables, cards, and filters.

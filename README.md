@@ -104,13 +104,14 @@ These steps are the same on Windows and macOS:
 - Includes navigation, action, object, and status icons plus meaningful grayscale visual anchors in the first draft.
 - Creates native editable Figma layers rather than flattened images.
 - Uses nested Auto Layout and deliberate `FILL`, `HUG`, and `FIXED` sizing without empty Spacer layers.
+- Separates layout sizing from visual paint, keeps structural wrappers transparent, and gives each card, panel, field, menu, or dialog one intentional surface owner.
 - Promotes repeated shells, navigation, toolbars, tables, dialogs, and state panels into reusable components.
 - Classifies revisions as local, state-level, or system-level and propagates shared changes through component sources to every affected screen.
 - Stress-tests buttons, cards, rows, and action groups at minimum, nominal, expanded, and long-content widths.
 - Uses component variants for systematic states such as button appearance, active navigation, selection, loading, or disabled behavior.
 - Covers relevant empty, loading, error, permission, success, destructive, quota, overflow, and recovery states.
 - Keeps menus anchored to triggers, dialogs centered over full-screen scrims, search clearing inside the field, and standalone states centered in fill-remaining regions.
-- Audits clipping, overflow, section collisions, duplicated actions, broken instances, fragile fixed widths, missing Auto Layout, and component duplication.
+- Audits clipping, overflow, section collisions, duplicated actions, broken instances, fragile fixed widths, accidental nested fills, missing Auto Layout, component duplication, and defects hidden in unused variants.
 - Adapts layouts by recomposing for desktop, mobile, or responsive views instead of shrinking a desktop canvas.
 
 The output stays monochrome and product-focused. This plugin is not intended for branded high-fidelity visual design, illustration, or marketing artwork.

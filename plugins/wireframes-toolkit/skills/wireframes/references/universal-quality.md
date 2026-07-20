@@ -9,6 +9,7 @@ Use this reference to reason about unfamiliar products and screen types without 
 - Information hierarchy
 - Content standards
 - Auto Layout standards
+- Visual roles and surface ownership
 - Responsive transformations
 - States and interactions
 - Monochrome visual language
@@ -81,6 +82,25 @@ Auto Layout is the default construction method, not an optional cleanup step.
 - Keep icons, badges, and labels inside their control's Auto Layout.
 - Keep labeled buttons horizontal-HUG unless a fixed width is a true invariant. Preserve compatible geometry across variants and verify icon and label bounds at minimum, nominal, and expanded widths.
 - Keep overlays absolute only relative to a stable Auto Layout container.
+
+## Visual roles and surface ownership
+
+Do not confuse responsive sizing with background paint. In Figma, layout `FILL` means that a node consumes available geometry; the `fills` property paints a background. A structural wrapper can use layout `FILL` while its paint remains empty.
+
+Classify every container before styling it:
+
+- **Canvas:** the screen or workspace background.
+- **Surface:** a card, panel, drawer, dialog, menu, field, bounded state panel, or other visually distinct region.
+- **Structural wrapper:** a semantic stack or row such as content, copy, heading, metadata, actions, rail, grid, or section grouping.
+- **Control:** an interactive element whose fill, border, and state communicate affordance.
+- **Media or preview:** a deliberately bounded visual region that may own a fill or mask.
+- **Overlay:** a scrim or contextual layer with an explicit coverage rule.
+
+Set appearance explicitly after creating an Auto Layout frame. Figma-created frames may carry a default white fill. Structural wrappers should normally use empty fills, strokes, and effects. True surfaces should declare their neutral fill and border intentionally.
+
+Give each background and border one semantic owner. A card may own a white surface, while its nested content, heading, metadata, rating, and action groups remain transparent. Do not repeat the parent fill merely because the child was created from a default frame. This keeps component variants portable across white, gray, selected, disabled, and overlay backgrounds.
+
+Do not use `clipsContent` to hide a construction defect. Reserve clipping for explicit viewports, scroll regions, media masks, or bounded previews.
 
 Accept absolute positioning for:
 
@@ -182,6 +202,8 @@ Reject or correct wireframes that:
 - use lorem ipsum where real content shape is knowable;
 - show isolated modals or drawers without originating context;
 - contain clipped text, ambiguous action priority, duplicate components, or generic layer names;
+- paint structural wrappers with default white or near-white fills, causing rectangular seams when the parent surface changes;
+- repeat the same background or border across nested containers instead of assigning one surface owner;
 - copy the same app shell, table, toolbar, row, or state structure across three or more screens instead of using instances;
 - apply a shared navigation, component, spacing, or typography change to only one screen without an explicit local exception;
 - let fixed-width buttons, cards, or action groups clip labels instead of hugging or intentionally reflowing;
@@ -200,10 +222,11 @@ Score each dimension from 0 to 2. Fix every zero before delivery.
 | Content | Generic or copied | Partly realistic | Brief-derived and layout-realistic |
 | Flow | Missing paths or outcomes | Happy path works | Relevant alternate states are covered |
 | Auto Layout | Fragile absolute layout | Mixed construction | Structural relationships use nested Auto Layout |
+| Surface ownership | Accidental nested fills or doubled borders | Mostly intentional with isolated leaks | Structural wrappers are transparent and each surface has one owner |
 | Reuse | Duplicated repeated elements | Some reuse | Components and instances are intentional |
 | Responsiveness | Shrunk or ignored | Partial adaptation | Composition and priority adapt correctly |
 | Monochrome | Depends on hue/polish | Mostly grayscale | Grayscale hierarchy works independently |
 | Editability | Flattened or poorly named | Editable with cleanup | Native, semantic, maintainable layers |
 | Validation | Known visual defects | Basic check only | Metadata and screenshots verified, defects fixed |
 
-A strong result scores at least 17/20 and has no zero in Task clarity, Auto Layout, Editability, or Validation.
+A strong result scores at least 19/22 and has no zero in Task clarity, Auto Layout, Surface ownership, Editability, or Validation.
