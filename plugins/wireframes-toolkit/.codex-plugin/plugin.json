@@ -1,6 +1,6 @@
 {
   "name": "wireframes-toolkit",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Research, create, revise, and audit reference-backed black-and-white Figma wireframes with adaptive components.",
   "author": {
     "name": "digitalklondike",
@@ -13,7 +13,7 @@
   "interface": {
     "displayName": "Wireframes Toolkit",
     "shortDescription": "Create structured low-fi Figma wireframes",
-    "longDescription": "Research, build, revise, and audit editable monochrome product wireframes with composition evidence from Mobbin, first-draft iconography, Auto Layout, adaptive reusable components, cross-screen change propagation, responsive reflow, and false-positive-aware visual QA. A bundled setup skill safely audits required and optional companions.",
+    "longDescription": "Research, build, revise, and audit editable monochrome product wireframes with composition evidence from Mobbin, first-draft iconography, Auto Layout, explicit surface ownership, adaptive reusable components, cross-screen change propagation, responsive reflow, and false-positive-aware visual QA. A bundled setup skill safely audits required and optional companions.",
     "developerName": "digitalklondike",
     "category": "Productivity",
     "capabilities": ["Interactive", "Write"],

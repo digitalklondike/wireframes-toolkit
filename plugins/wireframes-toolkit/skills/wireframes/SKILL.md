@@ -126,6 +126,9 @@ Construct from the outside in:
 Apply these rules:
 
 - Use nested Auto Layout frames for stacks, rows, alignment, padding, gaps, wrapping, and responsive composition.
+- Separate layout sizing from visual paint. `layoutSizingHorizontal = "FILL"` controls geometry; `fills` controls background paint. A structural container can and often should fill its parent while remaining visually transparent.
+- Assign every container an explicit visual role before styling it: canvas, surface, structural wrapper, control, media/preview, or overlay. After creating an Auto Layout frame, set its appearance deliberately instead of accepting Figma defaults. Use `fills = []`, `strokes = []`, and `effects = []` for structural wrappers; give a deliberate fill or border only to a real surface.
+- Keep one owner for each background and border. Do not repeat a card or panel fill on nested `Content`, `Copy`, `Heading`, `Metadata`, `Rating`, `Actions`, `Row`, or `Rail` frames unless that child is independently interactive or visually bounded.
 - Never create empty `Spacer` layers or frames to push content apart. Use Auto Layout distribution such as `SPACE_BETWEEN`; when either side contains multiple children, wrap them in semantic groups such as `Leading content` and `Trailing actions` or `Primary navigation` and `Utility navigation`.
 - Use `FILL`, `HUG`, and `FIXED` deliberately; append children before applying `FILL` as required by `$figma-use`.
 - Reserve `FIXED` for true invariants such as icon slots, compact controls, stable sidebars, intentional modal widths, and bounded preview panes. Prefer `FILL` when a structural row, section, card, or content column derives its available width from its parent. A full-width child whose width merely repeats the parent's inner width should normally be `FILL`, not a copied pixel value.
@@ -133,6 +136,7 @@ Apply these rules:
 - Give wrapping text a real width and height-auto behavior. Test long labels and realistic content.
 - Size every container to its tallest child. Use a consistent control height appropriate to the platform, commonly 44 px on desktop wireframes, and never hide a sizing defect with clipping.
 - Turn repeated or stateful structures into components and instances. Create variants when differences are systematic.
+- Audit the component source and every variant, including variants not currently placed on a screen. A correct visible instance does not prove that installed, disabled, loading, error, or compact variants are free of default fills, clipping, or fixed-width defects.
 - Before distributing a reusable component, stress-test its source at minimum, nominal, and expanded widths and with 130–150% text expansion. Design a compact variant or explicit reflow when the narrow state changes topology.
 - Treat reuse as a construction requirement, not optional cleanup. Any coherent macro-pattern used on three or more screens—such as an app shell, navigation, toolbar, table header or row, card, dialog shell, upload manager, or state panel—should normally be a component or instance with explicit override points.
 - Model one semantic component family as a component set with variant properties such as `state`, `style`, `size`, or `selection`. Do not leave `Button/Primary`, `Button/Secondary`, and similar siblings as unrelated standalone components when they are variants of the same control.
@@ -140,6 +144,7 @@ Apply these rules:
 - Name layers by role: `Page shell`, `Primary navigation`, `Content`, `Section`, `Field`, `Actions`, `Modal`, and similar semantic names.
 - Avoid generic names such as `Frame 123`, `Group`, or `Rectangle` in finished work.
 - Use absolute positioning only for overlays, floating controls, chart marks, freeform canvases, or intentionally layered elements. Keep their containing structure in Auto Layout.
+- Keep `clipsContent` off for ordinary structural containers. Enable it only for a deliberate viewport, scroll region, media mask, or bounded preview; never use clipping to conceal overflow, background seams, or undersized components.
 
 ### 5. Add content and behavior
 
@@ -203,6 +208,7 @@ Check all of the following:
 - the root frame and major regions resize predictably;
 - no text, controls, or content are clipped, overlapped, or collapsed;
 - no visible descendant extends outside its screen or intended clipping container;
+- no structural wrapper carries an accidental white or near-white fill, stroke, or effect; each visible surface has one intentional owner;
 - no empty `Spacer` layer exists; all separation comes from Auto Layout alignment, distribution, gaps, or padding;
 - every interactive control that relies on an icon contains a visible icon, and constrained icon-only controls remain understandable;
 - repeated structures are instances where reuse is valuable;
@@ -220,7 +226,7 @@ Check all of the following:
 - layers and frames are semantically named;
 - screenshots match metadata and intended structure.
 
-For Figma flows, read [Figma Structural QA](references/figma-structural-qa.md) before the final audit. Count screen roots; assert zero `Spacer` layers; detect descendants outside screen bounds and children larger than clipping parents; verify flexible structural regions use `FILL`; verify standalone states have a fill-remaining `State region`; detect copied macro-patterns and split component families; compare repeated orientation paths and primary actions; and verify open menus have a small positive gap and aligned edge relative to their triggers. Apply the reference's false-positive rules before reporting defects. Then visually inspect representative dense, modal, state, menu, long-content, and whole-section screenshots.
+For Figma flows, read [Figma Structural QA](references/figma-structural-qa.md) before the final audit. Count screen roots; assert zero `Spacer` layers; inventory fills, strokes, and effects on semantic structural wrappers; detect descendants outside screen bounds and children larger than clipping parents; verify flexible structural regions use `FILL`; verify standalone states have a fill-remaining `State region`; detect copied macro-patterns and split component families; compare repeated orientation paths and primary actions; and verify open menus have a small positive gap and aligned edge relative to their triggers. Check component sources and every variant, not only visible instances. Apply the reference's false-positive rules before reporting defects. Then visually inspect representative dense, modal, state, menu, long-content, and whole-section screenshots.
 
 When a section or canvas group grows, recompute the positions of every downstream section row. Preserve the established horizontal and vertical gutters, move paired columns together, and assert zero pairwise intersections between top-level sections before handoff.
 
