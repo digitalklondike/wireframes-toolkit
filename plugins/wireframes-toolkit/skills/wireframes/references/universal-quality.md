@@ -44,6 +44,7 @@ Choose a composition that makes those answers obvious. Invent a new composition 
 - Give every screen a clear title or orienting context.
 - Place the primary task and decision path above supporting information.
 - Group information by meaning and cadence, not merely by equal-sized boxes.
+- Vary composition when the job or content morphology changes. Preserve consistency for repeated jobs, but do not flatten browsing, comparison, monitoring, configuration, and decision-making into one uniform table or card grid.
 - Use proximity, alignment, whitespace, type weight, and grayscale contrast to show relationships.
 - Keep actions near the content they affect.
 - Use progressive disclosure for secondary detail and advanced controls.
@@ -60,6 +61,7 @@ Choose a composition that makes those answers obvious. Invent a new composition 
 - Use placeholders only when the content is genuinely unknown; label the intended content type.
 - Never reuse names, organizations, metrics, or prose from unrelated reference files.
 - Test at least one long-content or high-density case when the product may encounter it.
+- Include the planned navigation, action, object, and status icons in the first draft. Add low-fidelity previews or other visual anchors when they materially improve scanning or comprehension.
 
 ## Auto Layout standards
 
@@ -77,6 +79,7 @@ Auto Layout is the default construction method, not an optional cleanup step.
 - Combine systematic component states and styles into variants instead of maintaining unrelated standalone siblings.
 - Keep icon identity separate from icon presentation. Reuse one glyph component and override its neutral fill rather than duplicating light and dark icon libraries.
 - Keep icons, badges, and labels inside their control's Auto Layout.
+- Keep labeled buttons horizontal-HUG unless a fixed width is a true invariant. Preserve compatible geometry across variants and verify icon and label bounds at minimum, nominal, and expanded widths.
 - Keep overlays absolute only relative to a stable Auto Layout container.
 
 Accept absolute positioning for:
@@ -167,7 +170,10 @@ Reject or correct wireframes that:
 
 - copy the theme or copywriting of unrelated examples;
 - use a dashboard merely because the product has data;
+- use a table merely because the product contains repeated items, without a real cross-column comparison job;
 - replace content reasoning with uniform cards;
+- reduce Mobbin evidence to generic component nouns instead of applying its composition, density, hierarchy, and progressive-disclosure lessons;
+- postpone all icons and visual anchors until a later polish pass;
 - depend on color to explain state;
 - use absolute coordinates for normal layout;
 - contain nested groups where editable Auto Layout frames are needed;
@@ -177,6 +183,8 @@ Reject or correct wireframes that:
 - show isolated modals or drawers without originating context;
 - contain clipped text, ambiguous action priority, duplicate components, or generic layer names;
 - copy the same app shell, table, toolbar, row, or state structure across three or more screens instead of using instances;
+- apply a shared navigation, component, spacing, or typography change to only one screen without an explicit local exception;
+- let fixed-width buttons, cards, or action groups clip labels instead of hugging or intentionally reflowing;
 - split one control family into unrelated components or duplicate icon glyphs only to change their monochrome fill;
 - claim a state is centered when its parent does not fill the remaining content area;
 - add polish that makes stakeholders debate branding instead of product structure.

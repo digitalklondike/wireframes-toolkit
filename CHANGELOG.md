@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.5
+
+- Require composition-level Mobbin synthesis instead of reducing research to generic tables, cards, and filters.
+- Add a content-morphology workflow and layout-evidence matrix for more varied, task-appropriate first drafts.
+- Make navigation, action, object, and status icons plus meaningful grayscale visual anchors mandatory in the first iteration.
+- Add revision impact analysis so shared navigation, shell, component, spacing, and typography changes propagate across all affected screens.
+- Add minimum, nominal, expanded, and long-content stress tests for buttons, cards, rows, and action groups.
+- Explicitly reject fixed-width button clipping, accidental narrow-card wrapping, one-screen-only system fixes, and iconless first drafts.
+
 ## 0.1.4
 
 - Add optional Mobbin research routing for substantial flows, unfamiliar product models, and explicit best-practice requests.

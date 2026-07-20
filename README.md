@@ -99,10 +99,14 @@ These steps are the same on Windows and macOS:
 
 - Frames the actor, job to be done, entry point, success outcome, constraints, and business rules.
 - Builds a minimum complete screen and state inventory before drawing.
-- Optionally researches comparable real-product flows in Mobbin and synthesizes patterns instead of copying a competitor.
+- Optionally researches comparable real-product flows and screen compositions in Mobbin, then produces a layout-evidence matrix instead of copying a competitor.
+- Chooses tables, lists, cards, split views, timelines, staged flows, forms, or mixed compositions from the content shape rather than defaulting to one generic layout.
+- Includes navigation, action, object, and status icons plus meaningful grayscale visual anchors in the first draft.
 - Creates native editable Figma layers rather than flattened images.
 - Uses nested Auto Layout and deliberate `FILL`, `HUG`, and `FIXED` sizing without empty Spacer layers.
 - Promotes repeated shells, navigation, toolbars, tables, dialogs, and state panels into reusable components.
+- Classifies revisions as local, state-level, or system-level and propagates shared changes through component sources to every affected screen.
+- Stress-tests buttons, cards, rows, and action groups at minimum, nominal, expanded, and long-content widths.
 - Uses component variants for systematic states such as button appearance, active navigation, selection, loading, or disabled behavior.
 - Covers relevant empty, loading, error, permission, success, destructive, quota, overflow, and recovery states.
 - Keeps menus anchored to triggers, dialogs centered over full-screen scrims, search clearing inside the field, and standalone states centered in fill-remaining regions.
@@ -115,7 +119,7 @@ The output stays monochrome and product-focused. This plugin is not intended for
 
 For substantial or unfamiliar flows, Wireframes can use the optional Mobbin app to inspect real screens and multi-step journeys before finalizing the screen inventory.
 
-The skill searches one interaction at a time, uses the correct platform, inspects the returned images, compares multiple relevant products, and extracts sequencing, information hierarchy, action placement, progressive disclosure, edge states, and recovery behavior. Mobbin is treated as product evidence rather than an authority: branding, copy, data, and complete competitor layouts are never copied.
+The skill searches one interaction at a time, uses the correct platform, inspects the returned images, compares multiple relevant products, and extracts sequencing, content morphology, composition, density, whitespace rhythm, visual anchors, information hierarchy, progressive disclosure, edge states, and recovery behavior. Mobbin is treated as product evidence rather than an authority: branding, copy, data, and complete competitor layouts are never copied.
 
 If Mobbin is unavailable, the workflow continues with `ui-ux-pro-max` and the built-in quality standard. Mobbin is never installed or authenticated silently.
 

@@ -1,7 +1,7 @@
 interface:
   display_name: "Wireframes"
-  short_description: "Create clear, universal Figma wireframes"
-  default_prompt: "Use $wireframes to turn this product brief into clear black-and-white Figma wireframes built with Auto Layout."
+  short_description: "Create reference-backed adaptive wireframes"
+  default_prompt: "Use $wireframes to research relevant layouts and create editable black-and-white Figma wireframes with icons, adaptive components, and cross-screen consistency."
 dependencies:
   tools:
     - type: "mcp"

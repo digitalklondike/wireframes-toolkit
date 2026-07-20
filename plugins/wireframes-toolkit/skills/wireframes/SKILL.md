@@ -1,6 +1,6 @@
 ---
 name: wireframes
-description: Research, create, extend, revise, or audit universal black-and-white product wireframes and UX flows, especially in Figma. Use when Codex must turn briefs, requirements, journeys, rough ideas, or comparable-product evidence into structurally sound low- or mid-fidelity screens; plan screen inventories and states; create desktop, mobile, or responsive variants; or improve existing wireframes. Prioritize focused UX research, Auto Layout, reusable components, realistic content, clear hierarchy, responsive reflow, and visual validation. Apply to any product domain or screen type. Do not use for branded high-fidelity visual design, illustration, or marketing artwork.
+description: Research, create, extend, revise, or audit universal black-and-white product wireframes and UX flows, especially in Figma. Use when Codex must turn briefs, requirements, journeys, rough ideas, or comparable-product evidence into structurally sound low- or mid-fidelity screens; plan screen inventories and states; create desktop, mobile, or responsive variants; propagate shared changes across an existing flow; or improve generic, iconless, clipped, or overly table-driven wireframes. Prioritize composition-level Mobbin evidence, first-draft iconography, Auto Layout, adaptive reusable components, realistic content, clear hierarchy, responsive reflow, cross-screen consistency, and visual validation. Apply to any product domain or screen type. Do not use for branded high-fidelity visual design, illustration, or marketing artwork.
 ---
 
 # Wireframes
@@ -15,6 +15,8 @@ For substantial creation or review, read [Universal Quality Standard](references
 - Keep the result universal and monochrome: black, white, and neutral grays only.
 - Prefer realistic, concise product content over lorem ipsum or arbitrary placeholders.
 - Make behavior, hierarchy, states, and flow legible before adding detail.
+- Select composition from the content shape and user decision. Do not default to a table, dashboard, or uniform card grid merely because it is familiar or already available.
+- Include the planned icons and meaningful grayscale visual anchors in the first draft. Treat them as navigation and comprehension structure, not later polish.
 - Use Auto Layout for every structural relationship. Treat absolute positioning as an exception that needs a clear reason.
 - Create native, editable Figma structure. Do not flatten finished wireframes into images.
 - Match the user's language for interface copy unless the brief specifies another language.
@@ -57,12 +59,15 @@ Resolve conflicts in this order: the current user brief, this skill's low-fideli
 
 ## UX reference research
 
-For a substantial new flow, an unfamiliar product model, a complex interaction, or an explicit request for references or best practices, use Mobbin when its app tools are available. Read [Mobbin Research](references/mobbin-research.md) before searching, and complete the focused research before finalizing the screen inventory.
+For a substantial new flow, an unfamiliar product model, a complex interaction, or an explicit request for references or best practices, use Mobbin when its app tools are available. Read [Mobbin Research](references/mobbin-research.md) and [Composition and Revision Protocol](references/composition-and-revision.md) before searching, and complete the focused research before finalizing the screen inventory.
 
 For substantial creation, use this order: Mobbin for real-product evidence, `ui-ux-pro-max` for guidance and anti-patterns, `design-system` for reusable structure, then `impeccable` for critique after the first complete draft.
 
 - Treat Mobbin as evidence of real product conventions, not as an authority or a source to copy.
 - Compare multiple relevant products and extract flow structure, information order, state coverage, action placement, recovery paths, and progressive disclosure.
+- Extract composition as well as feature presence: content morphology, dominant axis, density, whitespace rhythm, visual anchors, persistent regions, and progressive disclosure. Produce a brief layout-evidence matrix before drawing.
+- Use screen search to study layout and flow search to study sequence. Inspect at least three useful screens across at least two products when results allow it.
+- Generate two or three viable composition candidates for materially different screen jobs, then choose deliberately. Do not translate every reference into the same table, card grid, or dashboard.
 - Keep each search focused on one journey, screen, or section and use the requested platform.
 - Inspect returned images; never infer a pattern from metadata alone.
 - Cite the Mobbin links for references mentioned to the user.
@@ -90,6 +95,8 @@ Ask only questions whose answers would materially change the architecture. Conti
 - Give each screen one clear primary job and one dominant next action.
 - Include alternate paths only when they affect comprehension or implementation.
 - Select and combine interaction patterns from the content and behavior; never limit the solution to pattern names seen in examples.
+- Map each major screen job to an appropriate content morphology such as table, list, browse-detail, timeline, staged flow, grouped form, canvas, or mixed composition. Use tables only for genuine repeated-field comparison.
+- For substantial flows, write a concise composition brief from inspected references before committing to the first screen.
 - Identify reusable regions and components before drawing.
 
 ### 3. Establish a neutral wireframe system
@@ -126,6 +133,7 @@ Apply these rules:
 - Give wrapping text a real width and height-auto behavior. Test long labels and realistic content.
 - Size every container to its tallest child. Use a consistent control height appropriate to the platform, commonly 44 px on desktop wireframes, and never hide a sizing defect with clipping.
 - Turn repeated or stateful structures into components and instances. Create variants when differences are systematic.
+- Before distributing a reusable component, stress-test its source at minimum, nominal, and expanded widths and with 130–150% text expansion. Design a compact variant or explicit reflow when the narrow state changes topology.
 - Treat reuse as a construction requirement, not optional cleanup. Any coherent macro-pattern used on three or more screens—such as an app shell, navigation, toolbar, table header or row, card, dialog shell, upload manager, or state panel—should normally be a component or instance with explicit override points.
 - Model one semantic component family as a component set with variant properties such as `state`, `style`, `size`, or `selection`. Do not leave `Button/Primary`, `Button/Secondary`, and similar siblings as unrelated standalone components when they are variants of the same control.
 - Keep one component per icon glyph and change presentation through supported instance overrides, variables, or component properties. Do not duplicate an icon library merely to create light and dark versions.
@@ -145,11 +153,13 @@ Apply these rules:
 - Put the clear affordance for a populated search field inside the field at the trailing edge. Do not add a separate `Clear search` button unless clearing is a destructive or unusually consequential operation.
 - Use one orientation path per view. When a breadcrumb is present, do not repeat the same path as subtitle copy above it.
 - Avoid duplicate primary actions within one viewport. If a title row or persistent toolbar already exposes the empty-state action, either remove it from the state panel, demote one occurrence, or make the contextual difference explicit.
-- Use one coherent icon library and real vector icons instead of text glyphs. If the brief does not specify a library, prefer Phosphor icons for neutral product wireframes. Give every icon-only action an unambiguous accessible name or tooltip.
+- Create an icon map before the first build milestone. Use one coherent icon library and real vector icons instead of text glyphs. If the brief does not specify a library, prefer Phosphor icons for neutral product wireframes. Cover navigation, actions, object types, and status/feedback states in the first draft; do not postpone them to polish. Give every icon-only action an unambiguous accessible name or tooltip.
+- Use distinct semantic icons or grayscale content previews to differentiate repeated entities. Do not reuse one generic icon across unrelated objects merely because it is convenient.
 - When space is constrained, preserve the recognizable icon and convert a secondary action to icon-only before allowing its label or control to clip. Keep primary or ambiguous actions labeled.
 - Center dialogs within the active content viewport, excluding persistent navigation and headers. Put every standalone empty, no-results, error, blocked, and recovery panel inside a named `State region` that fills the remaining content area on both axes, then center the panel within that region unless the surrounding information architecture requires another alignment. Do not simulate centering with a fixed-height region that leaves unused space below it, and do not place a standalone state panel directly in a left-aligned content stack.
 - Give dialogs a scrim that covers the entire active screen state and place the centered dialog above it. Contextual menus, dropdowns, and popovers should not dim the screen; their trigger, edge alignment, and small gap must communicate origin.
 - Keep adjacent actions visually distinct. Use an explicit Auto Layout gap, normally 8–12 px on desktop, and audit nested trailing-action groups as well as the outer action row so button strokes never visually merge.
+- Keep ordinary labeled buttons horizontal-HUG with a stable accessible height and padding. Do not assign a fixed width just to make siblings match. Verify that icon and label bounds remain inside every button variant, including disabled, loading, and installed states.
 - Annotate assumptions or non-obvious behavior outside the product UI, not as fake interface copy.
 
 ### 6. Adapt; do not shrink
@@ -159,7 +169,19 @@ Apply these rules:
 - Preserve task priority, readable content, and usable control sizes.
 - Do not force a desktop composition into a narrow frame by scaling it down.
 
-### 7. Execute incrementally in Figma
+### 7. Revise with impact analysis
+
+Read [Composition and Revision Protocol](references/composition-and-revision.md) before any revision that touches navigation, shell, header, sidebar, toolbar, cards, buttons, spacing, typography, or another repeated pattern.
+
+- Classify the request as local, state-level, or system-level before editing.
+- Treat shared navigation and component changes as global by default unless the user explicitly scopes one screen.
+- Enumerate affected screen roots, source components, instances, variants, and expected counts.
+- Edit the component source, component set, variable, or shared shell. Never patch one instance when the change is semantic to the system.
+- Promote stable copied patterns used three or more times to components before modifying them.
+- After editing, recount instances and copied remnants, verify variant preservation, and inspect representative wide, narrow, and exceptional-state screenshots.
+- Report the changed source component and the number of affected screens.
+
+### 8. Execute incrementally in Figma
 
 Follow `$figma-use` strictly:
 
@@ -173,7 +195,7 @@ Follow `$figma-use` strictly:
 
 Keep each `use_figma` call small. Do not attempt an entire complex flow in one script.
 
-### 8. Validate before delivery
+### 9. Validate before delivery
 
 Check all of the following:
 
@@ -187,6 +209,10 @@ Check all of the following:
 - macro-patterns repeated across three or more screens are instances rather than copied frames;
 - systematic control families use variants, and icon glyphs are not duplicated by presentation color;
 - hierarchy and primary actions remain obvious in grayscale;
+- the first draft already includes the planned navigation, action, object, and status icons;
+- different screen jobs use evidence-backed compositions rather than one repeated table/card template;
+- buttons and reusable content components pass minimum, nominal, expanded, and long-content stress cases;
+- system-level revisions resolve consistently across every affected instance and screen;
 - each view has one canonical orientation path and no unexplained duplicate primary CTA;
 - content is realistic and belongs to the current brief;
 - relevant edge states and responsive transformations are present;
