@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.7
+
+- Add compact component contracts for semantic roles, axis sizing, alignment, spacing, state contrast, reflow, and interaction outcomes.
+- Distinguish tabs, actions, selections, and statuses; evaluate action emphasis across the whole viewport.
+- Add top-aligned card-row and consistent action-group checks with explicit layout exceptions.
+- Require bounded content-driven dialogs and initial/bottom-scroll reachability checks without footer occlusion.
+- Add page-scoped comment synthesis, uncertainty handling, feedback ledgers, and historical regression checks while preserving analysis-only boundaries.
+- Extend final QA with semantic affordance, state contrast, trigger/outcome coverage, and revision acceptance gates.
+
 ## 0.1.6
 
 - Distinguish layout `FILL` sizing from Figma's `fills` paint property.

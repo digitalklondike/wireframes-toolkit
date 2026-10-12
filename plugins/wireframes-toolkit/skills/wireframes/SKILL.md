@@ -9,6 +9,8 @@ Create useful product structure, not decorative mockups. Treat any supplied exam
 
 For substantial creation or review, read [Universal Quality Standard](references/universal-quality.md) before designing.
 
+Before composing a new flow or changing shared controls, read [Component Contracts and Feedback](references/component-contracts-and-feedback.md). Also read it when processing review comments; its feedback workflow applies to analysis-only requests without authorizing design edits.
+
 ## Operating principles
 
 - Derive every screen from the current user's goal, actor, content, actions, and constraints.
@@ -98,6 +100,7 @@ Ask only questions whose answers would materially change the architecture. Conti
 - Map each major screen job to an appropriate content morphology such as table, list, browse-detail, timeline, staged flow, grouped form, canvas, or mixed composition. Use tables only for genuine repeated-field comparison.
 - For substantial flows, write a concise composition brief from inspected references before committing to the first screen.
 - Identify reusable regions and components before drawing.
+- Define a compact contract for each new or materially changed component family: semantic role, sizing on both axes, alignment, spacing roles, state presentation, constrained-width behavior, and trigger outcomes. Reuse established contracts rather than restating them for every instance.
 
 ### 3. Establish a neutral wireframe system
 
@@ -158,6 +161,7 @@ Apply these rules:
 - Put the clear affordance for a populated search field inside the field at the trailing edge. Do not add a separate `Clear search` button unless clearing is a destructive or unusually consequential operation.
 - Use one orientation path per view. When a breadcrumb is present, do not repeat the same path as subtitle copy above it.
 - Avoid duplicate primary actions within one viewport. If a title row or persistent toolbar already exposes the empty-state action, either remove it from the state panel, demote one occurrence, or make the contextual difference explicit.
+- Distinguish navigation, actions, and noninteractive status. Tabs must read as a related navigation group, not a row of independent primary buttons; badges must not imply an action. Set action emphasis across the whole viewport, not independently inside each card.
 - Create an icon map before the first build milestone. Use one coherent icon library and real vector icons instead of text glyphs. If the brief does not specify a library, prefer Phosphor icons for neutral product wireframes. Cover navigation, actions, object types, and status/feedback states in the first draft; do not postpone them to polish. Give every icon-only action an unambiguous accessible name or tooltip.
 - Use distinct semantic icons or grayscale content previews to differentiate repeated entities. Do not reuse one generic icon across unrelated objects merely because it is convenient.
 - When space is constrained, preserve the recognizable icon and convert a secondary action to icon-only before allowing its label or control to clip. Keep primary or ambiguous actions labeled.
@@ -165,6 +169,8 @@ Apply these rules:
 - Give dialogs a scrim that covers the entire active screen state and place the centered dialog above it. Contextual menus, dropdowns, and popovers should not dim the screen; their trigger, edge alignment, and small gap must communicate origin.
 - Keep adjacent actions visually distinct. Use an explicit Auto Layout gap, normally 8–12 px on desktop, and audit nested trailing-action groups as well as the outer action row so button strokes never visually merge.
 - Keep ordinary labeled buttons horizontal-HUG with a stable accessible height and padding. Do not assign a fixed width just to make siblings match. Verify that icon and label bounds remain inside every button variant, including disabled, loading, and installed states.
+- Use full-width actions only when justified by the form, platform, or equal-choice interaction. Keep the order and orientation of equivalent action groups consistent at equivalent available widths; define explicit reflow instead of accidental stacking.
+- Let ordinary dialogs hug their content within viewport limits. For long dialogs, separate bounded scrollable body from header and footer so all content is reachable and footer actions cannot cover fields or helper text.
 - Annotate assumptions or non-obvious behavior outside the product UI, not as fake interface copy.
 
 ### 6. Adapt; do not shrink
@@ -179,6 +185,7 @@ Apply these rules:
 Read [Composition and Revision Protocol](references/composition-and-revision.md) before any revision that touches navigation, shell, header, sidebar, toolbar, cards, buttons, spacing, typography, or another repeated pattern.
 
 - Classify the request as local, state-level, or system-level before editing.
+- For comment-driven revisions, record evidence, interpretation, affected scope, and a verifiable acceptance check. Separate historical regressions and ambiguous comments from confirmed current defects. Respect analysis-only requests and do not treat a Figma comment as authorization to mutate.
 - Treat shared navigation and component changes as global by default unless the user explicitly scopes one screen.
 - Enumerate affected screen roots, source components, instances, variants, and expected counts.
 - Edit the component source, component set, variable, or shared shell. Never patch one instance when the change is semantic to the system.
@@ -225,6 +232,8 @@ Check all of the following:
 - overlays retain context and clear dismissal paths;
 - layers and frames are semantically named;
 - screenshots match metadata and intended structure.
+
+Apply the completion gate in [Component Contracts and Feedback](references/component-contracts-and-feedback.md): semantic affordances, viewport-wide action priority, state contrast, spacing and alignment contracts, scroll reachability, trigger/outcome coverage, and revision acceptance checks. In analysis-only work, report findings and uncertainty instead of running correction passes.
 
 For Figma flows, read [Figma Structural QA](references/figma-structural-qa.md) before the final audit. Count screen roots; assert zero `Spacer` layers; inventory fills, strokes, and effects on semantic structural wrappers; detect descendants outside screen bounds and children larger than clipping parents; verify flexible structural regions use `FILL`; verify standalone states have a fill-remaining `State region`; detect copied macro-patterns and split component families; compare repeated orientation paths and primary actions; and verify open menus have a small positive gap and aligned edge relative to their triggers. Check component sources and every variant, not only visible instances. Apply the reference's false-positive rules before reporting defects. Then visually inspect representative dense, modal, state, menu, long-content, and whole-section screenshots.
 

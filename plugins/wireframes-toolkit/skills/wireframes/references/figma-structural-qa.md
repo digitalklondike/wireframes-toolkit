@@ -11,6 +11,7 @@ Use this reference for the final programmatic and visual audit of a substantial 
 - Reuse and variants
 - Revision propagation
 - Adaptive component geometry
+- Semantic and reachability checks
 - False-positive controls
 - Visual evidence and canvas checks
 
@@ -89,6 +90,17 @@ Stress-test reusable buttons, cards, rows, navigation items, and action groups a
 - Require an explicit compact variant or designed stacked footer when a narrow card changes topology; flag accidental wrapping.
 - Inspect component sources as well as instances. A wide instance can hide a broken source, and a correct source can still have an invalid width override.
 - Inspect unused variants as well as placed instances. A family is not complete while an unplaced variant still contains accidental paint, clipping, or incompatible geometry.
+
+## Semantic and reachability checks
+
+Apply [Component Contracts and Feedback](component-contracts-and-feedback.md) alongside geometry detectors:
+
+- Compare tab, button, selection, and status presentation; flag semantic confusion rather than every filled tab.
+- Judge dominant actions across the viewport, including persistent utilities and repeated cards, not only within isolated components.
+- Inspect text and actual vector glyph contrast against each variant's surface; wrapper paint alone does not prove icon visibility.
+- Compare peer-card top edges and action-group order/orientation at equivalent widths. Account for intentional masonry and designed responsive reflow.
+- Inspect long-dialog initial and bottom-scroll states with expanded helper/error text. Check sibling overlap and content insets; bounds containment and a scrollbar do not prove reachability.
+- Check trigger-to-outcome coverage and acceptance criteria for carried-forward review requests.
 
 ## False-positive controls
 
