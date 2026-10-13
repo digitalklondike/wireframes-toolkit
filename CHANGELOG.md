@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.8
+
+- Condense the skill entrypoint and route detailed research, component, feedback, and QA guidance only when relevant.
+- Fix modal centering to follow the scrim viewport; distinguish centered modal dialogs from trigger-anchored nonmodal popovers.
+- Add dialog width families, semantic spacing relationships, horizontal action grouping, and cross-state card stability checks.
+- Preserve deliberate full-width form CTA policies instead of mechanically applying HUG to every button.
+- Add data-specific picker/select affordances, consistent password visibility, duplicate-submit prevention, media-placeholder grouping, and scrollbar clearance.
+- Distinguish specified wireframe behavior from tested prototype behavior; retain monochrome, Auto Layout, shared-revision, Mobbin, and companion routing.
+
 ## 0.1.7
 
 - Add compact component contracts for semantic roles, axis sizing, alignment, spacing, state contrast, reflow, and interaction outcomes.

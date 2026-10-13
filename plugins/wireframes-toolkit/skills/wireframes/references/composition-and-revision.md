@@ -100,7 +100,7 @@ Test reusable controls and content components at minimum, nominal, and expanded 
 
 ### Buttons
 
-- Use horizontal HUG sizing for ordinary labeled buttons.
+- Use the family width policy: HUG for ordinary labeled actions, FILL for deliberate full-width form CTAs, FIXED for genuine invariants. Preserve that policy across form and outcome screens.
 - Keep a fixed, accessible control height and horizontal padding; do not use a fixed width merely to match siblings.
 - Keep icon, label, and optional caret in one Auto Layout row with a deliberate gap.
 - Make the disabled, loading, installed, and destructive variants preserve compatible geometry.

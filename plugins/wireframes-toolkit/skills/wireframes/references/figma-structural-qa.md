@@ -83,7 +83,7 @@ Do not accept a screenshot-only local patch as evidence of a complete system rev
 
 Stress-test reusable buttons, cards, rows, navigation items, and action groups at minimum, nominal, and expanded widths, plus realistic text expansion.
 
-- Prefer horizontal-HUG buttons with fixed accessible height and padding. Flag fixed button widths that are not true invariants.
+- Compare buttons with the family width contract: ordinary HUG, intentional full-width FILL, invariant FIXED. Check usable height and padding; flag arbitrary widths or inconsistent form/outcome CTA sizing, not full-width actions themselves.
 - Compare the bounds of icon and label descendants against every button variant. Any visible descendant outside the control is a failure even when the parent clips it.
 - Require disabled, loading, installed, and destructive variants to preserve compatible geometry.
 - Make card content columns fill while icon slots and actions hug or remain intentionally fixed.
@@ -101,6 +101,8 @@ Apply [Component Contracts and Feedback](component-contracts-and-feedback.md) al
 - Compare peer-card top edges and action-group order/orientation at equivalent widths. Account for intentional masonry and designed responsive reflow.
 - Inspect long-dialog initial and bottom-scroll states with expanded helper/error text. Check sibling overlap and content insets; bounds containment and a scrollbar do not prove reachability.
 - Check trigger-to-outcome coverage and acceptance criteria for carried-forward review requests.
+- Compare equivalent regions across material states for shifted card tops and unrelated layout movement. Check horizontal action grouping where width permits, preserving separate destructive groups and real context differences.
+- Check modal centers against the scrim viewport, not a smaller content column; compare dialog width families. Check scrollbar gutter, data-specific field affordances, consistent password toggles, and specified duplicate-submit prevention. Static screenshots cannot establish runtime interaction behavior.
 
 ## False-positive controls
 
@@ -118,7 +120,7 @@ Do not report raw detector output without checking meaning.
 
 - Assert zero `Spacer` layers, zero unintended groups, zero accidentally painted structural wrappers, zero clipped visible descendants, and zero top-level section intersections.
 - Verify predictable `FILL`, `HUG`, and `FIXED` behavior on the shell, content, split views, tables, cards, action groups, and state regions.
-- Verify menus and popovers have a visible trigger, a small positive gap, logical edge alignment, and no scrim; verify dialogs have a full active-state scrim and are centered in the active viewport.
+- Verify menus and popovers have a visible trigger, a small positive gap, logical edge alignment, and no scrim; verify modal dialogs center against the full viewport covered by their scrim (including navigation/header for full-screen scrims).
 - Inspect whole sections for consistent gutters, section titles, paired-column alignment, and downstream movement after any section grows.
 - Inspect individual screens for duplicate paths and actions, button separation, long labels, realistic density, first-draft icon visibility, and understandable icon-only controls.
 - Inspect whole-flow composition for unjustified repetition. Flag different screen jobs that have been reduced to the same table, dashboard, or uniform card template without content-based reasoning.

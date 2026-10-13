@@ -80,7 +80,7 @@ Auto Layout is the default construction method, not an optional cleanup step.
 - Combine systematic component states and styles into variants instead of maintaining unrelated standalone siblings.
 - Keep icon identity separate from icon presentation. Reuse one glyph component and override its neutral fill rather than duplicating light and dark icon libraries.
 - Keep icons, badges, and labels inside their control's Auto Layout.
-- Keep labeled buttons horizontal-HUG unless a fixed width is a true invariant. Preserve compatible geometry across variants and verify icon and label bounds at minimum, nominal, and expanded widths.
+- Follow the component family's width policy: ordinary labeled actions HUG, established full-width form CTAs FILL, true invariant controls FIXED. Preserve compatible geometry across variants and verify icon/label bounds under width and text stress.
 - Keep overlays absolute only relative to a stable Auto Layout container.
 
 ## Visual roles and surface ownership

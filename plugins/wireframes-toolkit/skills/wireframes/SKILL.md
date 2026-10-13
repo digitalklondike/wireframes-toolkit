@@ -1,246 +1,87 @@
 ---
 name: wireframes
-description: Research, create, extend, revise, or audit universal black-and-white product wireframes and UX flows, especially in Figma. Use when Codex must turn briefs, requirements, journeys, rough ideas, or comparable-product evidence into structurally sound low- or mid-fidelity screens; plan screen inventories and states; create desktop, mobile, or responsive variants; propagate shared changes across an existing flow; or improve generic, iconless, clipped, or overly table-driven wireframes. Prioritize composition-level Mobbin evidence, first-draft iconography, Auto Layout, adaptive reusable components, realistic content, clear hierarchy, responsive reflow, cross-screen consistency, and visual validation. Apply to any product domain or screen type. Do not use for branded high-fidelity visual design, illustration, or marketing artwork.
+description: Research, create, extend, revise, or audit editable monochrome product wireframes and UX flows, especially in Figma. Use for briefs, screen/state planning, shared-component revisions, layout defects, and review-comment synthesis. Apply across product domains; not for branded high-fidelity design or artwork.
 ---
 
 # Wireframes
 
-Create useful product structure, not decorative mockups. Treat any supplied examples as evidence of quality and construction only. Never copy their domain, information architecture, labels, people, numbers, or screen taxonomy unless the current brief independently requires them.
+Design product structure from the current actor, task, content, and constraints. Reference examples demonstrate quality, not a domain, copy library, or fixed screen taxonomy.
 
-For substantial creation or review, read [Universal Quality Standard](references/universal-quality.md) before designing.
+## Scope and invariants
 
-Before composing a new flow or changing shared controls, read [Component Contracts and Feedback](references/component-contracts-and-feedback.md). Also read it when processing review comments; its feedback workflow applies to analysis-only requests without authorizing design edits.
+- Use black, white, and neutral grays; realistic brief-derived copy; native editable layers; semantic naming.
+- Choose composition from the job and content shape. Do not default to tables, dashboards, or identical cards, and do not force variety between equivalent jobs.
+- Include meaningful vector icons and content previews in the first draft. Prefer Phosphor unless another library is specified; no text-glyph substitutes.
+- Use nested Auto Layout for structural relationships. Use distribution, padding, and gaps, never empty `Spacer` layers. Absolute positioning is for intentional overlays or spatial content.
+- Distinguish layout `FILL` from background `fills`. Structural wrappers are transparent (`fills`, `strokes`, `effects` empty); each real surface has one background/border owner. Clipping is only for intentional viewports or masks.
+- Shared changes must reach all affected screens and states within the authorized scope. Audit/report requests do not authorize edits, comment replies, or resolutions.
+- Current user brief takes precedence, followed by monochrome/low-fidelity constraints, coherent file conventions, and companion suggestions.
 
-## Operating principles
+## Load only relevant guidance
 
-- Derive every screen from the current user's goal, actor, content, actions, and constraints.
-- Keep the result universal and monochrome: black, white, and neutral grays only.
-- Prefer realistic, concise product content over lorem ipsum or arbitrary placeholders.
-- Make behavior, hierarchy, states, and flow legible before adding detail.
-- Select composition from the content shape and user decision. Do not default to a table, dashboard, or uniform card grid merely because it is familiar or already available.
-- Include the planned icons and meaningful grayscale visual anchors in the first draft. Treat them as navigation and comprehension structure, not later polish.
-- Use Auto Layout for every structural relationship. Treat absolute positioning as an exception that needs a clear reason.
-- Create native, editable Figma structure. Do not flatten finished wireframes into images.
-- Match the user's language for interface copy unless the brief specifies another language.
+| Task | Read |
+|---|---|
+| Substantial creation or review | [Universal Quality Standard](references/universal-quality.md) |
+| New/shared component family, field/overlay design, comment synthesis | [Component Contracts and Feedback](references/component-contracts-and-feedback.md) |
+| New flow, composition decision, or shared revision | [Composition and Revision Protocol](references/composition-and-revision.md) |
+| UX research for a new/unfamiliar flow or explicit reference request | [Mobbin Research](references/mobbin-research.md) |
+| Final Figma audit | [Figma Structural QA](references/figma-structural-qa.md) |
+| Missing companion | [Companion Setup](references/companion-setup.md) |
 
-## Choose the output mode
+A small repair needs only guidance relevant to its cause. Do not rerun full research or system setup for a local alignment fix.
 
-### Write or modify Figma
+## Tools and companions
 
-1. Load and follow `$figma-use` before every `use_figma` call.
-2. Pass at least `skillNames: "figma-use,wireframes"` to every `use_figma` call. Append any companion skill names that materially informed the operation.
-3. Inspect the target file, page, components, variables, and naming before writing.
-4. Reuse an existing neutral wireframe system when it fits. Do not inherit branded styling unless requested.
-5. If no target file exists, create or request an editable Figma Design file using the supported Figma workflow.
+- Before every `use_figma`, load and follow `$figma-use`; include `skillNames: "figma-use,wireframes"`, adding companion names only when they materially informed the call. Inspect existing pages, components, variables, and naming before writing.
+- If `figma-use` is unavailable, do not execute `use_figma`. Offer verified setup or a non-editable screen/state/component plan; do not claim a Figma artifact exists.
+- For substantial creation, use available Mobbin evidence first; visually inspect references and synthesize composition, not generic feature lists. Follow its research reference for search depth and citations. Missing Mobbin is non-blocking unless the user explicitly requires its evidence.
+- Apply installed `ui-ux-pro-max` before finalizing a substantial inventory: search the product/platform with `low-fidelity monochrome product UI`; extract UX guidance and anti-patterns, not branded styling.
+- Apply installed `design-system` before building shared structure: component contracts, spacing, type scale, and state families; no slide/CSS deliverables for a Figma-only task.
+- Apply installed `impeccable` after a complete draft for hierarchy, clarity, accessibility, and edge states, without high-fidelity decoration.
+- These three companions are recommended, not blockers. Mention missing enhancements once and continue with built-in guidance. Never silently install or authenticate dependencies; use the setup reference when needed.
 
-### Review existing wireframes
+## Creation workflow
 
-Use screenshots and metadata first. Inspect with `use_figma` only when a unique programmatic read is necessary; load `$figma-use` before doing so. Report both UX issues and construction issues such as missing Auto Layout, duplicated components, ambiguous sizing, clipping, or fragile absolute coordinates.
+### 1. Frame and research
 
-### Work without an editable Figma file
+Identify actor, task, entry/success/exit, data, permissions, business constraints, language, target viewport, and deliverable depth. Ask only questions that materially change architecture; label low-risk assumptions.
 
-Produce a screen inventory, flow, content hierarchy, state matrix, responsive behavior, and component plan. Clearly label assumptions. Do not pretend a Figma artifact was created.
+For substantial work, inspect references before committing to the inventory. Compare viable compositions when the job admits different approaches; preserve evidence links and explain why the selected structure fits.
 
-## Companion skill routing
+### 2. Plan flow and system
 
-Before a substantial task, compare the current available-skills catalog with the companion list below. If any companion is missing, read [Companion Setup](references/companion-setup.md).
+Build a minimum complete inventory of screens and material states, including recovery and permission paths. Each view has a clear job and next step. Map meaningful triggers to outcomes and dismissal paths.
 
-- Treat `figma-use` as required only for Figma operations that call `use_figma`. If it is missing, explain that editable Figma execution cannot start, show its verified installation source, and wait for installation or choose the non-editable output mode. Never call `use_figma` without it.
-- Treat `ui-ux-pro-max`, `design-system`, and `impeccable` as recommended enhancements. Mention missing enhancements once per thread with one concise setup note, then continue with the built-in workflow and quality standard unless the user asks to install them.
-- Never execute a companion installation command without explicit user consent. Do not repeatedly interrupt a wireframing task after the user declines or chooses fallback mode.
+Define a neutral type/spacing/surface system using coherent existing conventions. Establish reusable component contracts for sizing on both axes, alignment, spacing roles, state behavior, and constrained-width reflow. Avoid arbitrary new dimensions per instance.
 
-For substantial creation or revision, load and apply the following installed companion skills in addition to `wireframes`. Treat a new flow, three or more screens, an unfamiliar product model, or a system-level component change as substantial.
+### 3. Build editable structure
 
-1. Use `$ui-ux-pro-max` before finalizing the screen inventory. Follow its required design-system search with the product type, platform, and `low-fidelity monochrome product UI` in the query. Extract product patterns, UX guidance, accessibility risks, and anti-patterns. Discard palette, font-pairing, effects, and branded-style recommendations unless the user explicitly asks to leave low fidelity.
-2. Use `$design-system` before building reusable structures when the flow has a shared shell, repeated controls, variants, or three or more screens. Apply its component specification, state matrix, spacing, and typography-scale guidance to Figma components and variants. Do not run its slide workflow or generate CSS tokens for a Figma-only wireframe task unless explicitly requested.
-3. Use `$impeccable` after the first structurally complete draft and before final Figma QA. Apply the product register and the relevant critique, layout, clarify, or harden lens to information architecture, hierarchy, cognitive load, copy, accessibility, and edge states. Do not let it convert the artifact into high fidelity or add decorative color, typography, or motion.
+Build outside-in: shell → regions → sections → controls/content → variants → overlays. Reuse components; promote stable macro-patterns repeated across three or more screens to instances with explicit override points. Combine systematic states/styles into variant families; do not duplicate icon glyphs solely for light/dark presentation.
 
-For a small scoped repair, skip the full companion sequence and load only the companion whose lens directly helps. If a companion skill is unavailable, continue with `wireframes`, state the fallback briefly, and do not block the task.
+Use FILL for flexible structural regions, HUG for intrinsic content, and FIXED for true invariants. Button sizing follows its family contract: ordinary actions hug; established full-width form CTAs stay full-width across their flow. Give wrapping text a real width and height-auto behavior; append before setting FILL and follow the API skill's font/sizing rules.
 
-Resolve conflicts in this order: the current user brief, this skill's low-fidelity and monochrome constraints, the existing file's coherent conventions, then companion recommendations. Translate companion output into native editable Figma structure rather than code-only deliverables.
+Standalone empty/error/recovery panels belong in a `State region` filling the remaining content area. Modal dialogs center in the viewport covered by their scrim; contextual popovers anchor to visible triggers without a scrim. See component guidance for width families and scroll-body/footer structure.
 
-## UX reference research
+Execute in small `use_figma` batches, return affected IDs, validate metadata and screenshots at milestones, and fix failures before building on them. Recompose requested narrow layouts; never shrink desktop text/controls to fit.
 
-For a substantial new flow, an unfamiliar product model, a complex interaction, or an explicit request for references or best practices, use Mobbin when its app tools are available. Read [Mobbin Research](references/mobbin-research.md) and [Composition and Revision Protocol](references/composition-and-revision.md) before searching, and complete the focused research before finalizing the screen inventory.
+## Revision and comment workflow
 
-For substantial creation, use this order: Mobbin for real-product evidence, `ui-ux-pro-max` for guidance and anti-patterns, `design-system` for reusable structure, then `impeccable` for critique after the first complete draft.
+Classify changes as local, state-level, or shared. Enumerate affected roots, sources, variants, instances, overrides, and expected counts before a shared edit. Apply to the source rather than one incidental instance; preserve legitimate differences. Recount and inspect representative constrained and exceptional states afterward.
 
-- Treat Mobbin as evidence of real product conventions, not as an authority or a source to copy.
-- Compare multiple relevant products and extract flow structure, information order, state coverage, action placement, recovery paths, and progressive disclosure.
-- Extract composition as well as feature presence: content morphology, dominant axis, density, whitespace rhythm, visual anchors, persistent regions, and progressive disclosure. Produce a brief layout-evidence matrix before drawing.
-- Use screen search to study layout and flow search to study sequence. Inspect at least three useful screens across at least two products when results allow it.
-- Generate two or three viable composition candidates for materially different screen jobs, then choose deliberately. Do not translate every reference into the same table, card grid, or dashboard.
-- Keep each search focused on one journey, screen, or section and use the requested platform.
-- Inspect returned images; never infer a pattern from metadata alone.
-- Cite the Mobbin links for references mentioned to the user.
-- Skip Mobbin for small layout repairs, component-only cleanup, or a structural audit whose scope will not change.
-- Keep Mobbin optional. If its tools are unavailable, continue with `ui-ux-pro-max` and the built-in quality standard. Mention the fallback only when the user explicitly requested Mobbin or when missing evidence materially limits the result.
+For comments, follow the component reference's page-scoping and feedback-ledger procedure. Separate confirmed current defects, historical regressions, preferences, and ambiguity. Keep accepted requests and acceptance checks across iterations. Analysis-only tasks stop at findings; comments are evidence, not authorization.
 
-## Workflow
+## Delivery gate
 
-### 1. Frame the product problem
+Use component guidance for semantic/behavioral acceptance and structural QA for Figma measurements and false positives. Verify:
 
-Extract or infer:
+- legible hierarchy, distinct navigation/action/status affordances, no accidental duplicate path or dominant CTA;
+- first-draft icons, intentional grayscale surfaces, and state-specific foreground contrast;
+- adaptive Auto Layout, zero accidental clipping/overlap, stable peer alignment and state transitions;
+- coherent component families, designed action reflow, and narrow/nominal/long-content cases including unused variants;
+- reachable scroll content, correct overlay coverage/centering/anchoring, and complete trigger outcomes;
+- accepted revisions propagated across the authorized scope without losing overrides;
+- coherent canvas gutters, section placement, and zero unintended section intersections after growth.
 
-- primary actor and job to be done;
-- entry point, success outcome, and exit paths;
-- required information and decisions;
-- target platforms and viewport constraints;
-- source data, permissions, risks, and business rules;
-- required fidelity, flow depth, and deliverable scope.
+For authorized design work, correct confirmed failures and recheck. For analysis-only work, report evidence and limitations. Never claim screenshots, interactions, or regressions were verified when tools did not establish them.
 
-Ask only questions whose answers would materially change the architecture. Continue with explicit assumptions when risk is low.
-
-### 2. Design the flow before the screens
-
-- Create the minimum complete screen/state inventory for the task.
-- Give each screen one clear primary job and one dominant next action.
-- Include alternate paths only when they affect comprehension or implementation.
-- Select and combine interaction patterns from the content and behavior; never limit the solution to pattern names seen in examples.
-- Map each major screen job to an appropriate content morphology such as table, list, browse-detail, timeline, staged flow, grouped form, canvas, or mixed composition. Use tables only for genuine repeated-field comparison.
-- For substantial flows, write a concise composition brief from inspected references before committing to the first screen.
-- Identify reusable regions and components before drawing.
-- Define a compact contract for each new or materially changed component family: semantic role, sizing on both axes, alignment, spacing roles, state presentation, constrained-width behavior, and trigger outcomes. Reuse established contracts rather than restating them for every instance.
-
-### 3. Establish a neutral wireframe system
-
-Use existing file conventions when they are coherent. Otherwise establish:
-
-- grayscale surfaces, text, borders, controls, and disabled states;
-- a compact neutral sans-serif type hierarchy;
-- a consistent 4-point spacing family such as 4, 8, 12, 16, 24, 32, and 48;
-- restrained corner radii and no ornamental shadows;
-- clear interaction priority through size, weight, placement, and contrast rather than color;
-- platform-appropriate frame widths derived from the brief, using common defaults only when unspecified.
-
-Represent status without semantic color. Use labels, icons, shape, fill value, borders, and text.
-
-### 4. Build Auto Layout first
-
-Construct from the outside in:
-
-1. page shell;
-2. navigation and main content regions;
-3. sections and responsive rows/columns;
-4. cards, lists, forms, toolbars, and controls;
-5. repeated components and their states;
-6. overlays and intentional layered content.
-
-Apply these rules:
-
-- Use nested Auto Layout frames for stacks, rows, alignment, padding, gaps, wrapping, and responsive composition.
-- Separate layout sizing from visual paint. `layoutSizingHorizontal = "FILL"` controls geometry; `fills` controls background paint. A structural container can and often should fill its parent while remaining visually transparent.
-- Assign every container an explicit visual role before styling it: canvas, surface, structural wrapper, control, media/preview, or overlay. After creating an Auto Layout frame, set its appearance deliberately instead of accepting Figma defaults. Use `fills = []`, `strokes = []`, and `effects = []` for structural wrappers; give a deliberate fill or border only to a real surface.
-- Keep one owner for each background and border. Do not repeat a card or panel fill on nested `Content`, `Copy`, `Heading`, `Metadata`, `Rating`, `Actions`, `Row`, or `Rail` frames unless that child is independently interactive or visually bounded.
-- Never create empty `Spacer` layers or frames to push content apart. Use Auto Layout distribution such as `SPACE_BETWEEN`; when either side contains multiple children, wrap them in semantic groups such as `Leading content` and `Trailing actions` or `Primary navigation` and `Utility navigation`.
-- Use `FILL`, `HUG`, and `FIXED` deliberately; append children before applying `FILL` as required by `$figma-use`.
-- Reserve `FIXED` for true invariants such as icon slots, compact controls, stable sidebars, intentional modal widths, and bounded preview panes. Prefer `FILL` when a structural row, section, card, or content column derives its available width from its parent. A full-width child whose width merely repeats the parent's inner width should normally be `FILL`, not a copied pixel value.
-- In repeated horizontal rows, let peer cards fill the row when they should share available space. Inside each card or list row, make the semantic content column fill while icons and trailing actions hug or stay fixed. Add minimum widths only when the content model requires them.
-- Give wrapping text a real width and height-auto behavior. Test long labels and realistic content.
-- Size every container to its tallest child. Use a consistent control height appropriate to the platform, commonly 44 px on desktop wireframes, and never hide a sizing defect with clipping.
-- Turn repeated or stateful structures into components and instances. Create variants when differences are systematic.
-- Audit the component source and every variant, including variants not currently placed on a screen. A correct visible instance does not prove that installed, disabled, loading, error, or compact variants are free of default fills, clipping, or fixed-width defects.
-- Before distributing a reusable component, stress-test its source at minimum, nominal, and expanded widths and with 130–150% text expansion. Design a compact variant or explicit reflow when the narrow state changes topology.
-- Treat reuse as a construction requirement, not optional cleanup. Any coherent macro-pattern used on three or more screens—such as an app shell, navigation, toolbar, table header or row, card, dialog shell, upload manager, or state panel—should normally be a component or instance with explicit override points.
-- Model one semantic component family as a component set with variant properties such as `state`, `style`, `size`, or `selection`. Do not leave `Button/Primary`, `Button/Secondary`, and similar siblings as unrelated standalone components when they are variants of the same control.
-- Keep one component per icon glyph and change presentation through supported instance overrides, variables, or component properties. Do not duplicate an icon library merely to create light and dark versions.
-- Name layers by role: `Page shell`, `Primary navigation`, `Content`, `Section`, `Field`, `Actions`, `Modal`, and similar semantic names.
-- Avoid generic names such as `Frame 123`, `Group`, or `Rectangle` in finished work.
-- Use absolute positioning only for overlays, floating controls, chart marks, freeform canvases, or intentionally layered elements. Keep their containing structure in Auto Layout.
-- Keep `clipsContent` off for ordinary structural containers. Enable it only for a deliberate viewport, scroll region, media mask, or bounded preview; never use clipping to conceal overflow, background seams, or undersized components.
-
-### 5. Add content and behavior
-
-- Use brief-derived labels, values, helper text, and actions.
-- Show the shape and density of real data without polishing it into high fidelity.
-- Preserve sufficient detail to test hierarchy and decisions; remove decorative detail that does not affect behavior.
-- Add only relevant states: default, hover/focus when needed, empty, loading, error, validation, disabled, success, permissions, destructive confirmation, overflow, and long-content cases.
-- Show drawers, dialogs, menus, and popovers in context over the originating screen.
-- Anchor every open menu, dropdown, or popover to a visible trigger. Place it below or beside the trigger with a deliberate 4–8 px gap and align a logical edge; never overlap the trigger or leave the layer floating ambiguously. Show an active/open trigger state when the relationship would otherwise be unclear.
-- Treat filters and selects as stateful controls, not decorative chips. Give the trigger a real caret icon, show an anchored open state with a visible current selection, and add an applied state whose label, count, and resulting content agree with the chosen value.
-- Put the clear affordance for a populated search field inside the field at the trailing edge. Do not add a separate `Clear search` button unless clearing is a destructive or unusually consequential operation.
-- Use one orientation path per view. When a breadcrumb is present, do not repeat the same path as subtitle copy above it.
-- Avoid duplicate primary actions within one viewport. If a title row or persistent toolbar already exposes the empty-state action, either remove it from the state panel, demote one occurrence, or make the contextual difference explicit.
-- Distinguish navigation, actions, and noninteractive status. Tabs must read as a related navigation group, not a row of independent primary buttons; badges must not imply an action. Set action emphasis across the whole viewport, not independently inside each card.
-- Create an icon map before the first build milestone. Use one coherent icon library and real vector icons instead of text glyphs. If the brief does not specify a library, prefer Phosphor icons for neutral product wireframes. Cover navigation, actions, object types, and status/feedback states in the first draft; do not postpone them to polish. Give every icon-only action an unambiguous accessible name or tooltip.
-- Use distinct semantic icons or grayscale content previews to differentiate repeated entities. Do not reuse one generic icon across unrelated objects merely because it is convenient.
-- When space is constrained, preserve the recognizable icon and convert a secondary action to icon-only before allowing its label or control to clip. Keep primary or ambiguous actions labeled.
-- Center dialogs within the active content viewport, excluding persistent navigation and headers. Put every standalone empty, no-results, error, blocked, and recovery panel inside a named `State region` that fills the remaining content area on both axes, then center the panel within that region unless the surrounding information architecture requires another alignment. Do not simulate centering with a fixed-height region that leaves unused space below it, and do not place a standalone state panel directly in a left-aligned content stack.
-- Give dialogs a scrim that covers the entire active screen state and place the centered dialog above it. Contextual menus, dropdowns, and popovers should not dim the screen; their trigger, edge alignment, and small gap must communicate origin.
-- Keep adjacent actions visually distinct. Use an explicit Auto Layout gap, normally 8–12 px on desktop, and audit nested trailing-action groups as well as the outer action row so button strokes never visually merge.
-- Keep ordinary labeled buttons horizontal-HUG with a stable accessible height and padding. Do not assign a fixed width just to make siblings match. Verify that icon and label bounds remain inside every button variant, including disabled, loading, and installed states.
-- Use full-width actions only when justified by the form, platform, or equal-choice interaction. Keep the order and orientation of equivalent action groups consistent at equivalent available widths; define explicit reflow instead of accidental stacking.
-- Let ordinary dialogs hug their content within viewport limits. For long dialogs, separate bounded scrollable body from header and footer so all content is reachable and footer actions cannot cover fields or helper text.
-- Annotate assumptions or non-obvious behavior outside the product UI, not as fake interface copy.
-
-### 6. Adapt; do not shrink
-
-- Recompose layouts for each requested viewport.
-- Convert grids to stacks, side regions to drawers or bottom navigation, dense tables to prioritized rows/cards or controlled horizontal overflow, and side-by-side actions to an appropriate mobile order.
-- Preserve task priority, readable content, and usable control sizes.
-- Do not force a desktop composition into a narrow frame by scaling it down.
-
-### 7. Revise with impact analysis
-
-Read [Composition and Revision Protocol](references/composition-and-revision.md) before any revision that touches navigation, shell, header, sidebar, toolbar, cards, buttons, spacing, typography, or another repeated pattern.
-
-- Classify the request as local, state-level, or system-level before editing.
-- For comment-driven revisions, record evidence, interpretation, affected scope, and a verifiable acceptance check. Separate historical regressions and ambiguous comments from confirmed current defects. Respect analysis-only requests and do not treat a Figma comment as authorization to mutate.
-- Treat shared navigation and component changes as global by default unless the user explicitly scopes one screen.
-- Enumerate affected screen roots, source components, instances, variants, and expected counts.
-- Edit the component source, component set, variable, or shared shell. Never patch one instance when the change is semantic to the system.
-- Promote stable copied patterns used three or more times to components before modifying them.
-- After editing, recount instances and copied remnants, verify variant preservation, and inspect representative wide, narrow, and exceptional-state screenshots.
-- Report the changed source component and the number of affected screens.
-
-### 8. Execute incrementally in Figma
-
-Follow `$figma-use` strictly:
-
-1. inspect;
-2. build the top-level skeleton with placeholders;
-3. create or reuse repeated components;
-4. populate one logical section at a time;
-5. return all created and mutated node IDs;
-6. validate structure and screenshot each milestone;
-7. fix defects before continuing.
-
-Keep each `use_figma` call small. Do not attempt an entire complex flow in one script.
-
-### 9. Validate before delivery
-
-Check all of the following:
-
-- every structurally related group uses Auto Layout;
-- the root frame and major regions resize predictably;
-- no text, controls, or content are clipped, overlapped, or collapsed;
-- no visible descendant extends outside its screen or intended clipping container;
-- no structural wrapper carries an accidental white or near-white fill, stroke, or effect; each visible surface has one intentional owner;
-- no empty `Spacer` layer exists; all separation comes from Auto Layout alignment, distribution, gaps, or padding;
-- every interactive control that relies on an icon contains a visible icon, and constrained icon-only controls remain understandable;
-- repeated structures are instances where reuse is valuable;
-- macro-patterns repeated across three or more screens are instances rather than copied frames;
-- systematic control families use variants, and icon glyphs are not duplicated by presentation color;
-- hierarchy and primary actions remain obvious in grayscale;
-- the first draft already includes the planned navigation, action, object, and status icons;
-- different screen jobs use evidence-backed compositions rather than one repeated table/card template;
-- buttons and reusable content components pass minimum, nominal, expanded, and long-content stress cases;
-- system-level revisions resolve consistently across every affected instance and screen;
-- each view has one canonical orientation path and no unexplained duplicate primary CTA;
-- content is realistic and belongs to the current brief;
-- relevant edge states and responsive transformations are present;
-- overlays retain context and clear dismissal paths;
-- layers and frames are semantically named;
-- screenshots match metadata and intended structure.
-
-Apply the completion gate in [Component Contracts and Feedback](references/component-contracts-and-feedback.md): semantic affordances, viewport-wide action priority, state contrast, spacing and alignment contracts, scroll reachability, trigger/outcome coverage, and revision acceptance checks. In analysis-only work, report findings and uncertainty instead of running correction passes.
-
-For Figma flows, read [Figma Structural QA](references/figma-structural-qa.md) before the final audit. Count screen roots; assert zero `Spacer` layers; inventory fills, strokes, and effects on semantic structural wrappers; detect descendants outside screen bounds and children larger than clipping parents; verify flexible structural regions use `FILL`; verify standalone states have a fill-remaining `State region`; detect copied macro-patterns and split component families; compare repeated orientation paths and primary actions; and verify open menus have a small positive gap and aligned edge relative to their triggers. Check component sources and every variant, not only visible instances. Apply the reference's false-positive rules before reporting defects. Then visually inspect representative dense, modal, state, menu, long-content, and whole-section screenshots.
-
-When a section or canvas group grows, recompute the positions of every downstream section row. Preserve the established horizontal and vertical gutters, move paired columns together, and assert zero pairwise intersections between top-level sections before handoff.
-
-Run a targeted correction pass for any failure. Do not hand off known defects.
-
-## Definition of done
-
-Deliver native editable layers, structurally complete flows, intentional Auto Layout, reusable patterns, monochrome visual language, realistic content, relevant states, responsive behavior when requested, clean naming, and screenshot-verified output. Summarize assumptions and provide direct links to the created or modified Figma nodes.
+Deliver direct Figma node links, material assumptions, and a concise summary of created/changed scope. A non-editable plan or unresolved access limitation must be clearly labeled.
